@@ -6,7 +6,7 @@ import React from 'react';
 const LightNavbar = () => {
     return (
         <nav>
-            <div className="container mx-auto flex justify-between items-center">
+            <div className=" flex justify-between items-center">
                 <div className="text-lg font-bold">
                     Bandage
                 </div>
