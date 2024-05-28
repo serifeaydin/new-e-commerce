@@ -6,12 +6,12 @@ import Hero from "../components/Hero";
 function Header(){
 
 return(
-<header>
+<div>
 <DarkNavbar/>
 <LightNavbar/>
 
 <Hero/>
-        </header>
+        </div>
 
 
 )
