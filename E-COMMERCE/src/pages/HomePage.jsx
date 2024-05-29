@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../layout/Header";
 import Client from "../components/Client";
 import ShopCard from "../components/ShopCard";
+import ProductCards from "../layout/ProductCards";
 
 
 function HomePage(){
@@ -12,6 +13,7 @@ function HomePage(){
            <Header/>
            <Client/>
            <ShopCard/>
+           <ProductCards/>
            
         
 
