@@ -3,6 +3,7 @@ import Header from "../layout/Header";
 import Client from "../components/Client";
 import ShopCard from "../components/ShopCard";
 import ProductCards from "../layout/ProductCards";
+import FeaturedContent from "../components/FeaturedContent";
 
 
 function HomePage(){
@@ -14,6 +15,7 @@ function HomePage(){
            <Client/>
            <ShopCard/>
            <ProductCards/>
+           <FeaturedContent/>
            
         
 
