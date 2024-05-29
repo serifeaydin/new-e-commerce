@@ -4,6 +4,7 @@ import Client from "../components/Client";
 import ShopCard from "../components/ShopCard";
 import ProductCards from "../layout/ProductCards";
 import FeaturedContent from "../components/FeaturedContent";
+import Features from "../components/Features";
 
 
 function HomePage(){
@@ -16,6 +17,7 @@ function HomePage(){
            <ShopCard/>
            <ProductCards/>
            <FeaturedContent/>
+           <Features/>
            
         
 
