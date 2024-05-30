@@ -5,12 +5,12 @@ import { faChartArea } from '@fortawesome/free-solid-svg-icons';
 
 const BlogCard = ({ image, department, title, description, price, salePrice, lessons, hours, rating, sales }) => (
   <div className="max-w-max bg-white shadow-lg rounded-lg overflow-hidden mx-4 flex">
-    <div className="relative w-1/2">
+    <div className="relative w-1/2 ">
       <img className=" h-full object-cover" src={image} alt="Graphic Design" />
       <span className="absolute top-2 left-2 bg-red-500 text-white text-lg px-2 font-semibold ">Sale</span>
     </div>
-    <div className="p-4 w-1/2 text-start">
-      <h3 className="text-sm text-gray-500">{department}</h3>
+    <div className="pt-8 w-1/2 text-start">
+      <h3 className="text-sm text-[#23A6F0]">{department}</h3>
       <h2 className="text-lg font-semibold">{title}</h2>
       <p className="text-gray-700 text-sm mt-2">{description}</p>
       <div className="mt-4">

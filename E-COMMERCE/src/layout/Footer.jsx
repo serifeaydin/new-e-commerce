@@ -13,11 +13,17 @@ function Footer() {
                     <div className="flex flex-col text-start rounded-lg p-6 w-full md:w-1/2">
                         <h2 className="text-lg font-bold">Get In Touch</h2>
                         <p className="">the quick fox jumps over the lazy dog</p>
-                        <div className="flex mt-4 ">
-                            <FontAwesomeIcon icon={faFacebook} size="2x" className="mr-4" style={{ color: '#23A6F0' }} />
-                            <FontAwesomeIcon icon={faInstagram} size="2x" className="mr-4" style={{ color: '#23A6F0' }}/>
-                            <FontAwesomeIcon icon={faTwitter} size="2x" className="mr-4" style={{ color: '#23A6F0' }}/>
-                        </div>
+                        <div className="flex mt-4">
+        <button className="mr-4  ">
+        <FontAwesomeIcon icon={faFacebook} size="2x" style={{ color: '#23A6F0' }} />
+        </button>
+        <button className="mr-4">
+          <FontAwesomeIcon icon={faInstagram} size="2x"  style={{ color: '#23A6F0' }}/>
+        </button>
+        <button className="mr-4 ">
+          <FontAwesomeIcon icon={faTwitter} size="2x" style={{ color: '#23A6F0' }}/>
+        </button>
+      </div>
                     </div>
                     <div className="flex flex-col text-start rounded-lg p-6 w-full md:w-1/4">
                         <h2 className="text-lg font-bold">Company Info</h2>
