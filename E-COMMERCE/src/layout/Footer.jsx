@@ -7,7 +7,7 @@ import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg
 
 function Footer() {
     return (
-        <footer className="bg-white hover:bg-blue-700 hover:text-white py-12">
+        <footer className="bg-white py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-wrap">
                     <div className="flex flex-col text-start rounded-lg p-6 w-full md:w-1/2">
@@ -22,10 +22,10 @@ function Footer() {
                     <div className="flex flex-col text-start rounded-lg p-6 w-full md:w-1/4">
                         <h2 className="text-lg font-bold">Company Info</h2>
                         <ul className="mt-4">
-                            <li><Link to="/AboutUs" className="">About Us</Link></li>
-                            <li><Link to="/Carrier" className="hover:text-white">Carrier</Link></li>
-                            <li><Link to="/WeAreHiring" className="hover:text-white">We are Hiring</Link></li>
-                            <li><Link to="/Blog" className="hover:text-white">Blog</Link></li>
+                            <li><Link to="/AboutUs" >About Us</Link></li>
+                            <li><Link to="/Carrier" >Carrier</Link></li>
+                            <li><Link to="/WeAreHiring" >We are Hiring</Link></li>
+                            <li><Link to="/Blog" >Blog</Link></li>
                         </ul>
                     </div>
                     <div className="flex flex-col text-start rounded-lg p-6 w-full md:w-1/4">

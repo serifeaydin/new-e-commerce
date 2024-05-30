@@ -5,6 +5,7 @@ import ShopCard from "../components/ShopCard";
 import ProductCards from "../layout/ProductCards";
 import FeaturedContent from "../components/FeaturedContent";
 import Features from "../components/Features";
+import FeaturedPost from "../layout/FeaturedPost";
 
 
 function HomePage(){
@@ -18,6 +19,7 @@ function HomePage(){
            <ProductCards/>
            <FeaturedContent/>
            <Features/>
+           <FeaturedPost/>
            
         
 
