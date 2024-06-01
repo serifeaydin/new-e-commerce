@@ -29,7 +29,7 @@ const BlogCard = ({ image, department, title, description, price, salePrice, les
       <FontAwesomeIcon icon={faChartArea} className='text-[#23856D]' />
        <p> {sales} Progress</p>
       </div>
-      <button className="mt-4 text-[#23A6F0] px-4 py-2 ">Learn More</button>
+      <button className="mt-4 text-[#23A6F0] px-4 py-2  ">Learn More</button>
     </div>
   </div>
 );

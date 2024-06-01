@@ -5,7 +5,7 @@ import ShopCard from "../components/ShopCard";
 import ProductCards from "../layout/ProductCards";
 import FeaturedContent from "../components/FeaturedContent";
 import Features from "../components/Features";
-import FeaturedPost from "../layout/FeaturedPost";
+import FeaturedPost from "../components/FeaturedPost";
 
 
 function HomePage(){

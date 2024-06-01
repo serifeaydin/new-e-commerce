@@ -1,5 +1,5 @@
 import React from "react";
-import BlogCard from "../components/BlogCard";
+import BlogCard from "./BlogCard";
 import Post1 from "../assets/post1.png";
 import Post2 from "../assets/post2.png";
 

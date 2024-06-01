@@ -7,23 +7,23 @@ import Vector5 from "../assets/Vector (5).png";
 import Vector6 from "../assets/Vector (6).png";
 function Client(){
 
-    return(
-        <section>
-            <div className="flex justify-between">
-<img src={Vector1} sizes=""/>
-<img src={Vector2}/>
-<img src={Vector3}/>
-<img src={Vector4}/>
-<img src={Vector5}/>
-<img src={Vector6}/>
+  
+        return (
+            <section>
+              <div className="flex justify-between m-24 ">
+                <img src={Vector1} className="w-16 h-12"/>
+                <img src={Vector2} className="w-16 h-12"  />
+                <img src={Vector3} className= "w-16 h-12"/>
+                <img src={Vector6} className="w-16 h-12"  />
+                <img src={Vector5} className="w-16 h-12"  />
+                <img src={Vector4} className="w-16 h-12"  />
+              </div>
+            </section>
+          );
+        };
 
-</div>
-
-
-        </section>
 
 
 
-    )
-}
+
 export default Client;
