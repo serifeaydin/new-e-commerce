@@ -1,9 +1,11 @@
 
 import './App.css'
-import Footer from './layout/Footer'
 
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 
 import HomePage from './pages/HomePage'
+import Footer from './layout/Footer';
+
 
 
 function App() {
@@ -11,9 +13,12 @@ function App() {
 
   return (
     <>
-   <HomePage/>
-      <Footer/>
-    </>
+      <Routes>
+                <Route exact path="/" element={<HomePage />} />
+            </Routes>
+          
+      </> 
+ 
   )
 }
 

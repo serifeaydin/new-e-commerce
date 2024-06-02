@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../layout/Header";
+import Footer from "../layout/Footer";
 import Client from "../components/Client";
 import ShopCard from "../components/ShopCard";
 import ProductCards from "../layout/ProductCards";
@@ -8,9 +9,12 @@ import Features from "../components/Features";
 import FeaturedPost from "../components/FeaturedPost";
 
 
-function HomePage(){
 
+function HomePage(){
+   
     return(
+
+       
 
         <div>
            <Header/>
@@ -20,10 +24,12 @@ function HomePage(){
            <FeaturedContent/>
            <Features/>
            <FeaturedPost/>
+           <Footer/>
            
         
 
         </div>
+
 
     )
 }

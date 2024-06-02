@@ -3,8 +3,9 @@ import Elips1 from "../assets/Ellipse 26.png";
 import Elips2 from "../assets/Ellipse 26 (1).png";
 import Elips3 from "../assets/Ellipse 26 (2).png";
 import Elips4 from "../assets/Ellipse 26 (2).png";
+import Swiper from 'swiper';
 
-
+import 'swiper/css';
 
 
 function Hero(){

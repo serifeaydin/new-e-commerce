@@ -9,9 +9,8 @@ return(
 <div>
 <DarkNavbar/>
 <LightNavbar/>
-
 <Hero/>
-        </div>
+</div>
 
 
 )
