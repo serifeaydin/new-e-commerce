@@ -1,39 +1,65 @@
-import Technology from "../assets/technology 1.png";
-import Elips1 from "../assets/Ellipse 26.png";
-import Elips2 from "../assets/Ellipse 26 (1).png";
-import Elips3 from "../assets/Ellipse 26 (2).png";
-import Elips4 from "../assets/Ellipse 26 (2).png";
-import Swiper from 'swiper';
+import React from 'react';
+import Hero1 from '../assets/hero1.jpg';
 
+import Hero3 from '../assets/hero3.jpg';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import { Navigation } from 'swiper/modules';
+import { Link } from 'react-router-dom';
+import SwiperCore from 'swiper/core';
 
+SwiperCore.use([Navigation]);
 
-function Hero(){
-
-    return(
-<section className="relative bg-gradient-to-r from-custom-blue to-custom-green mr-12 ml-4 rounded-lg">
-            <div className="container mx-auto flex flex-col md:flex-row items-center">
-                <div className="md:w-1/2 text-start p-24">
-                    <h2 className="text-lg text-[#2A7CC7] mb-2">SUMMER 2020</h2>
-                    <h1 className="text-4xl text-[#252B42] font-bold mb-4">NEW COLLECTION</h1>
-                    <p className="text-[#737373] mb-6">
-                        We know how large objects will act, but things on a small scale.
-                    </p>
-                    <button className="bg-[#23A6F0] text-white px-6 py-2 rounded">
-                        SHOP NOW
-                    </button>
-                </div>
-                
-                <div className="  md:w-1/2 mt-8 md:mt-0 relative">
-                    <img src={Elips1} alt="Elips1" className="absolute bottom-30 right-20 w-24 h-24 md:w-24 md:h-24"/>
-                    <img src={Elips2} alt="Elips2" className="absolute top-0 left-10  md:w-2 md:h-2"/>
-                    <img src={Elips3} alt="Elips2" className="absolute top-0 left-10  md:w-2 md:h-2"/>
-                    <img src={Elips4} alt="Elips2" className="absolute top-0 left-10  md:w-2 md:h-2"/>
-                    <img src={Technology} alt="New Collection" className="relative z-15 ml-16"/>
-                    </div>
+function Hero() {
+  return (
+    <section>
+      <div className=''>
+        <Swiper
+          navigation={true}
+          slidesPerView={1}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 50,
+            },
+          }}>
+          <SwiperSlide>
+            <div className="relative">
+              <img className="w-full" src={Hero1} alt="hero1" />
+              <div className="absolute top-1/4 right-2/5 pl-36 text-white  text-start">
+                <h5 className="text-white">SUMMER 2024</h5>
+                <h1 className=" text-6xl font-bold my-8">NEW COLLECTION</h1>
+                <h4 >We know how large objects will act,</h4>
+                <h4 className="pb-6 ">but things on a small scale.</h4>
+                <Link to="/shop">
+                  <button className="p-[15px_40px_15px_40px] bg-[#2DC071] text-start">
+                    <h3 className="text-white font-bold">SHOP NOW</h3>
+                  </button>
+                </Link>
+              </div>
             </div>
-        </section>
-        )
-
+          </SwiperSlide>
+         
+          <SwiperSlide>
+            <div className="relative">
+              <img className="w-full" src={Hero3} alt="hero3" />
+              <div className="absolute top-48 left-96 text-white  ">
+               
+                <h1 className="pb-[1rem] text-5xl font-bold">BLACK FRIDAY</h1>
+                <h4>We know how large objects will act, but things on a </h4>
+                <h4 className="pb-6">small scale just do not act that way.</h4>
+                <Link to="/shop">
+                  <button className="p-[15px_40px_15px_40px] bg-[#23A6F0]">
+                    <h3 className="text-white font-bold text-xl">Start Now</h3>
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+    </section>
+  );
 }
-export default Hero; 
+
+export default Hero;

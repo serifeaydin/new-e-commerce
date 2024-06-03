@@ -46,4 +46,4 @@ function ShopCard(){
 
     )
 }
-export default ShopCard;
+export default ShopCard; 

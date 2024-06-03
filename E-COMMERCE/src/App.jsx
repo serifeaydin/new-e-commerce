@@ -1,10 +1,11 @@
 
 import './App.css'
 
-import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import HomePage from './pages/HomePage'
-import Footer from './layout/Footer';
+import ShopPage from './pages/HomePage'
+
 
 
 
@@ -15,6 +16,8 @@ function App() {
     <>
       <Routes>
                 <Route exact path="/" element={<HomePage />} />
+                <Route exact path="/shop" element={<ShopPage />} />
+
             </Routes>
           
       </> 

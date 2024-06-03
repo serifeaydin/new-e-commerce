@@ -5,7 +5,7 @@ import GridIcon from "../assets/grid.icon.svg";
 
 const Features = () => {
   return (
-    <div className="flex flex-col items-center justify-center mt-16">
+    <div className="flex flex-col items-center justify-center mt-32 mb-32">
       <h2 className="text-blue-500 text-lg text-center font-semibold">Featured Products</h2>
       <h1 className="text-4xl font-bold mt-4 text-center">THE BEST SERVICES</h1>
       <p className="text-gray-600 mt-4 text-center">Problems trying to resolve the conflict between</p>

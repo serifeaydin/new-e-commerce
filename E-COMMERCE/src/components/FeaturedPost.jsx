@@ -16,5 +16,4 @@ function FeaturedPost() {
     </div>
   );
 }
-
 export default FeaturedPost;
