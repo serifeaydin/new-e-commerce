@@ -4,7 +4,7 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom';
 
 import HomePage from './pages/HomePage'
-import ShopPage from './pages/HomePage'
+import ShopPage from './pages/ShopPage'
 
 
 
@@ -15,8 +15,8 @@ function App() {
   return (
     <>
       <Routes>
-                <Route exact path="/" element={<HomePage />} />
-                <Route exact path="/shop" element={<ShopPage />} />
+                <Route  path="/" element={<HomePage />} />
+                <Route path="/shop" element={<ShopPage />} />
 
             </Routes>
           

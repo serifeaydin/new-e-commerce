@@ -26,7 +26,7 @@ const Slider = () => {
         }}
       >
         <SwiperSlide>
-          <div className="flex">
+          <div className="md:flex">
             <BlogCard
               image={Post1}
               department="English Department"

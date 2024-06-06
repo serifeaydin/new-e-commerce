@@ -4,12 +4,12 @@ import {faChartBar, faClock} from "@fortawesome/free-regular-svg-icons";
 import { faChartArea } from '@fortawesome/free-solid-svg-icons';
 
 const BlogCard = ({ image, department, title, description, price, salePrice, lessons, hours, rating, sales }) => (
-  <div className="max-w-max bg-white shadow-lg rounded-lg overflow-hidden mx-4 flex">
-    <div className="relative w-1/2 ">
+  <div className="md:w-max bg-white shadow-lg rounded-lg overflow-hidden flex">
+    <div className="relative w-1/2 md:my-8 md:mx-16 ">
       <img className=" h-full object-cover" src={image} alt="Graphic Design" />
       <span className="absolute top-2 left-2 bg-red-500 text-white text-lg px-2 font-semibold ">Sale</span>
     </div>
-    <div className="pt-8 w-1/2 text-start">
+    <div className="pt-8 w-1/2 text-start ">
       <h3 className="text-sm text-[#23A6F0]">{department}</h3>
       <h2 className="text-lg font-semibold">{title}</h2>
       <p className="text-gray-700 text-sm mt-2">{description}</p>

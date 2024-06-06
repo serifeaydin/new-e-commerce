@@ -1,6 +1,11 @@
 import React from "react";
-import Header from "../layout/Header";
+
 import Footer from "../layout/Footer";
+
+import DarkNavbar from "../components/DarkNavbar";
+import LightNavbar from "../components/LightNavbar";
+import Client from "../components/Client";
+import ProductCard from "../components/ProductCard";
 
 function HomePage(){
    
@@ -9,13 +14,14 @@ function HomePage(){
        
 
         <div>
-           <Header/>
+           <DarkNavbar/>
+           <LightNavbar/>
          
           
-           <ProductCards/>
+           <ProductCard/>
          
          
-          
+          <Client/>
            <Footer/>
            
         
