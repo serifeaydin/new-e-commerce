@@ -5,7 +5,10 @@ import Footer from "../layout/Footer";
 import DarkNavbar from "../components/DarkNavbar";
 import LightNavbar from "../components/LightNavbar";
 import Client from "../components/Client";
-import ProductCard from "../components/ProductCard";
+
+import Product from "../components/Product";
+import ProductCards from "../layout/ProductCards";
+import Description from "../components/Description";
 
 function HomePage(){
    
@@ -16,9 +19,10 @@ function HomePage(){
         <div>
            <DarkNavbar/>
            <LightNavbar/>
+           <Product/>
          
-          
-           <ProductCard/>
+          <Description/>
+           <ProductCards/>
          
          
           <Client/>
