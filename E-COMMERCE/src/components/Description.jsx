@@ -7,7 +7,7 @@ function Description(){
 
 
     return(
-        <div className="mx-16">
+        <div className="md:mx-16">
             <nav className="flex justify-center space-x-8 mb-8">
 
             <Link to="/description">

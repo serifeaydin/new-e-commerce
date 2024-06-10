@@ -16,7 +16,8 @@ const LightNavbar = () => {
                     <Link to="/shop">Shop</Link>
                     <Link to="/about">About</Link>
                     <Link to="/blog">Blog</Link>
-                    <Link to="/content-pages">Content Pages</Link>
+                    <Link to="/contact">Contact</Link>
+                    <Link to="/pages">Pages</Link>
                 </div>
 
                 <div className="hidden md:flex space-x-4 items-center">
@@ -62,7 +63,8 @@ const LightNavbar = () => {
                 <Link to="/shop" className="block">Shop</Link>
                 <Link to="/about" className="block">About</Link>
                 <Link to="/blog" className="block">Blog</Link>
-                <Link to="/content-pages" className="block">Content Pages</Link>
+                <Link to="/contact" className="block">Contact</Link>
+                <Link to="/pages" className="block">Pages</Link>
             </div>
 
             <div id="mobile-menu" className="md:hidden mt-16 mb-16 space-y-2 text-2xl">
@@ -70,6 +72,8 @@ const LightNavbar = () => {
                 <Link to="/product" className="block pb-6 text-[#737373] ">Product</Link>
                 <Link to="/pricing" className="block pb-6 text-[#737373]">Pricing</Link>
                 <Link to="/contact" className="block pb-6 text-[#737373]">Contact</Link>
+                
+
             </div>
         </nav>
     );
