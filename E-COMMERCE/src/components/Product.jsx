@@ -7,7 +7,21 @@ import { faHeart, faStar as farStar } from '@fortawesome/free-regular-svg-icons'
 
 const Product = () => {
   return (
+    <section>
+       <div className='hidden md:flex p-4'>
+     <Link to="/" className="mx-4">Home</Link>
+        <FontAwesomeIcon icon={faChevronRight} className='text-[#BDBDBD] mt-1'/>
+        <p className='text-[#BDBDBD] mx-4'>Shop</p>
+     </div>
+      
+     <div className='md:hidden flex p-4 justify-center text-sm mb-4 mt-4'>
+     <Link to="/" className="mx-4">Home</Link>
+        <FontAwesomeIcon icon={faChevronRight} className='text-[#BDBDBD] mt-1'/>
+        <p className='text-[#BDBDBD] mx-4 '>Shop</p>
+     </div>
+   
     <div className="max-w-xxl mx-auto p-4">
+     
       <div className="bg-white shadow-md rounded-lg overflow-hidden">
         <div className="flex flex-col md:flex-row">
           <div className="w-full md:w-1/2 p-4">
@@ -69,6 +83,7 @@ const Product = () => {
         </div>
       </div>
     </div>
+    </section>
   );
 };
 

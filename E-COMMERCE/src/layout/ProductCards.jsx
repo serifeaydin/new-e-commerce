@@ -26,15 +26,13 @@ const ProductCards = () => {
     return (
       <div className=" min-h-screen py-10">
         <div className="max-w-7xl ">
-          <h1 className="text-2xl text-[#737373] font-bold text-center mb-2">Featured Products</h1>
-          <h2 className="text-4xl text-center  mb-8">BESTSELLER PRODUCTS</h2>
-          <p className="text-center text-[#737373] mb-12">Problems trying to resolve the conflict between</p>
+         
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
             {products.map((product, index) => (
               <ProductCard
                 key={index}
-                image={product.image}
-                title={product.title}
+                image={product.img}
+                title={product.name}
                 department={product.department}
                 price={product.price}
                 salePrice={product.salePrice}
