@@ -20,7 +20,7 @@ function HomePage(){
            <Header/>
            <Client/>
            <ShopCard/>
-           <div>
+           <div className="mt-16">
            <h1 className="text-2xl text-[#737373] font-bold text-center mb-2">Featured Products</h1>
           <h2 className="text-4xl text-center  mb-8">BESTSELLER PRODUCTS</h2>
           <p className="text-center text-[#737373] mb-12">Problems trying to resolve the conflict between</p>

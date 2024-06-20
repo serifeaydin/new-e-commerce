@@ -2,8 +2,9 @@ import React from 'react';
 import Picture1 from "../assets/Picture1.jpg";
 import Picture2 from "../assets/Picture2.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping, faEye, faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faChevronRight, faEye, faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
 import { faHeart, faStar as farStar } from '@fortawesome/free-regular-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Product = () => {
   return (

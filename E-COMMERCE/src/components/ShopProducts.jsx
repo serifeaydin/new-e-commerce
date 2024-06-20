@@ -24,10 +24,10 @@ const ProductCards = () => {
     }
   
     return (
-      <div className=" min-h-screen py-10">
+      <div className=" min-h-screen py-10 px-8">
         <div className="max-w-7xl ">
          
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {products.map((product) => (
                <ProductCard
                key={product.id}

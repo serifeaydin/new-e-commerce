@@ -6,7 +6,7 @@ import Footer from "../layout/Footer";
 import Client from "../components/Client";
 
 
-import ProductCards from "../layout/ProductCards";
+import ShopProducts from "../components/ShopProducts";
 
 import ShopNavbar from "../components/ShopNavbar";
 
@@ -40,7 +40,7 @@ function ShopPage(){
     </div>
 </section>
          
-           <ProductCards/>
+           <ShopProducts/>
          
          
           <Client/>

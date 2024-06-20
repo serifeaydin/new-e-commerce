@@ -1,8 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const ProductCard = ({ image, title, department, price, salePrice }) => (
+
+const ProductCard = ({ id, image, title, department, price, salePrice }) => {
+  return (
+    <Link to={`/product/${id}`}>
     <div className="bg-white ">
-      <img src={image} alt={title} className="w-full h-64 object-cover " />
+      <img src={image} alt={title} className="w-full h-96 object-cover  " />
       <div className="mt-4">
         
        <p className="text-[#23A6F0]">{department}</p>
@@ -14,6 +18,7 @@ const ProductCard = ({ image, title, department, price, salePrice }) => (
         </div>
       </div>
     </div>
+    </Link>
   );
-
+}
 export default ProductCard;
