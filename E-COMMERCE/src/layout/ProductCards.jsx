@@ -10,6 +10,7 @@ const ProductCards = () => {
     useEffect(() => {
       axios.get('https://620d69fb20ac3a4eedc05e3a.mockapi.io/api/products')
         .then(response => {
+          console.log(response.data); // API'den dönen verileri kontrol edin
           setProducts(response.data);
           setLoading(false);
         })
