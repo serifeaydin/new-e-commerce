@@ -7,6 +7,10 @@ import Unsplash2 from "../assets/unsplash_2.png";
 import Unsplash3 from "../assets/unsplash_3.png";
 import Unsplash4 from "../assets/unsplash_4.png";
 import Unsplash5 from "../assets/unsplash_5.png";
+import Team from "../components/Team";
+import Footer from "../layout/Footer";
+import { faFacebook, faInstagram, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
+
 
 
 const TeamPage = () => {
@@ -22,6 +26,7 @@ const TeamPage = () => {
                     <Link to="/about">About</Link>
                     <Link to="/blog">Blog</Link>
                     <Link to="/contact">Contact</Link>
+                    <Link to="/team">Team</Link>
                     <Link to="/pages">Pages</Link>
                 </div>
                 <Link to="/login" className="text-[#23A6F0] border border-white py-1 rounded">
@@ -61,7 +66,27 @@ const TeamPage = () => {
                     </div>
 
                 </div>
+                <Team/>
+               
+                <div className="min-h-screen bg-white text-center flex flex-col items-center justify-center p-8">
+      <div className="max-w-xl">
+        <h1 className="text-3xl font-bold mb-4">Start your 14 days free trial</h1>
+        <p className="mb-6 text-gray-600">Met minim Mollie non desert Alamo est sit cliquey dolor 
+        do met sent. RELIT official consequent.</p>
+        <button className="bg-blue-500 text-white py-2 px-6  mb-6">Try it Free Now</button>
+        <div className="flex justify-center space-x-4 ">
+          <a href="#" className="text-[#BDBDBD] hover:text-blue-500"> <FontAwesomeIcon icon={faTwitter} size="xl" /></a>
+          <a href="#" className="text-[#BDBDBD] hover:text-blue-500"> <FontAwesomeIcon icon={faFacebook} size="xl" /></a>
+          <a href="#" className="text-[#BDBDBD] hover:text-blue-500"> <FontAwesomeIcon icon={faInstagram} size="xl" /></a>
+          <a href="#" className="text-[#BDBDBD] hover:text-blue-500"> <FontAwesomeIcon icon={faLinkedin} size="xl" /></a>
+        </div>
+      </div>
+    </div>
+
+    <Footer/>
                 </nav>
+               
+
                 )
                 }
 

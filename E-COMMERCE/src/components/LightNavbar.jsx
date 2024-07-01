@@ -17,6 +17,7 @@ const LightNavbar = () => {
                     <Link to="/about">About</Link>
                     <Link to="/blog">Blog</Link>
                     <Link to="/contact">Contact</Link>
+                    <Link to="/team">Team</Link>
                     <Link to="/pages">Pages</Link>
                 </div>
 
