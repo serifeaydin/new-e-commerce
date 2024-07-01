@@ -32,7 +32,7 @@ const teamMembers = [
 
 const Team = () => {
   return (
-    <div className=" py-24">
+    <div className=" pt-24">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl font-bold mb-8">Meet Our Team</h2>
         <p className="text-gray-600 mb-16 ">
@@ -40,7 +40,7 @@ const Team = () => {
         </p>
         <div className="flex flex-wrap justify-center">
           {teamMembers.map((member, index) => (
-            <div key={index} className="max-w-xs bg-white  mx-16 my-8  text-center">
+            <div key={index} className="max-w-xs bg-white  mx-16 my-16  text-center">
               <img
                 className="w-24 h-24 rounded-full mx-auto mb-4"
                 src={member.image}
