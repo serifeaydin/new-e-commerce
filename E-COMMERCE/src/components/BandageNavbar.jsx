@@ -39,13 +39,13 @@ const BandageNavbar = () => {
                     <Link to="/team">Team</Link>
                     <Link to="/pages">Pages</Link>
                 </div>
-                <div className="hidden md:flex space-x-16  ">
-                <Link to="/login" className="text-[#23A6F0] border border-white py-1 rounded">
+                <div className="hidden md:flex space-x-16 mr-20  ">
+                <Link to="/login" className="text-[#23A6F0] border font-semibold border-white py-1 rounded">
                         Login
                     </Link>
-                    <Link to="/login" className="text-white bg-[#23A6F0] border border-white py-1 rounded">
+                    <Link to="/login" className="text-white bg-[#23A6F0] border font-semibold border-white py-2 px-4 rounded-lg ">
                         Became a Member
-                        <FontAwesomeIcon icon={faArrowRight} style={{color: "#ffffff",}} />
+                        <FontAwesomeIcon icon={faArrowRight} style={{color: "#ffffff",}} className="pl-4" />
                     </Link>
                </div>
                 </div>
