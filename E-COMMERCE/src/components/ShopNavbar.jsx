@@ -59,6 +59,7 @@ function ShopNavbar(){
                  <Link to="/about">About</Link>
                  <Link to="/blog">Blog</Link>
                  <Link to="/contact">Contact</Link>
+                 <Link to="/team">Team</Link>
                  <Link to="/pages">Pages</Link>
              </div>
 
@@ -91,6 +92,7 @@ function ShopNavbar(){
                 <Link to="/about" className="block">About</Link>
                 <Link to="/blog" className="block">Blog</Link>
                 <Link to="/contact" className="block">Contact</Link>
+                <Link to="/team" className="block">Team</Link>
                 <Link to="/pages" className="block">Pages</Link>
             </div>
          
@@ -101,6 +103,7 @@ function ShopNavbar(){
              <Link to="/about" className="block">About</Link>
              <Link to="/blog" className="block">Blog</Link>
              <Link to="/contact" className="block">Contact</Link>
+             <Link to="/team" className="block">Team</Link>
              <Link to="/pages" className="block">Pages</Link>
 
          </div>
