@@ -9,6 +9,7 @@ import ProductDetailPage from './pages/ProductDetailPage'
 import ContactPage from './pages/ContactPage'
 import TeamPage from './pages/TeamPage';
 import AboutUsPage from './pages/AboutUsPage';
+import SignupForm from './components/SignUpForm';
 
 
 
@@ -27,6 +28,7 @@ function App() {
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/team" element={<TeamPage />} />
                 <Route path="/about" element={<AboutUsPage/>} />
+                <Route path="/signup" element={<SignupForm/>} />
 
 
             </Routes>
