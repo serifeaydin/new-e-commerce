@@ -42,7 +42,7 @@ function ContactPage() {
       <p className="text-center text-4xl font-bold mb-12">We help small businesses <br/> with big ideas</p>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <div className="text-center  p-4">
+        <div className="text-center  p-24">
           <FontAwesomeIcon icon={faPhone} className="text-[#23A6F0] text-5xl mb-4" />
           <p className="text-gray-500">georgia.young@example.com</p>
           <p className="text-gray-500 mb-4">georgia.young@ple.com</p>
@@ -50,7 +50,7 @@ function ContactPage() {
           <button className="border border-[#23A6F0] text-[#23A6F0] py-2 px-4 rounded-2xl">Submit Request</button>
         </div>
 
-        <div className="text-center p-4 bg-[#252B42] text-white rounded">
+        <div className="text-center p-24 bg-[#252B42] text-white rounded">
           <FontAwesomeIcon icon={faMapMarkerAlt} className="text-5xl mb-4 text-[#23A6F0]" />
           <p>georgia.young@example.com</p>
           <p className="mb-4">georgia.young@ple.com</p>
@@ -58,7 +58,7 @@ function ContactPage() {
           <button className="border border-white py-2 px-4 rounded-2xl ">Submit Request</button>
         </div>
 
-        <div className="text-center p-4">
+        <div className="text-center p-24">
           <FontAwesomeIcon icon={faEnvelope} className="text-[#23A6F0] text-5xl mb-4" />
           <p className="text-gray-500">georgia.young@example.com</p>
           <p className="text-gray-500 mb-4">georgia.young@ple.com</p>

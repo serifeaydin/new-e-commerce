@@ -43,7 +43,7 @@ const BandageNavbar = () => {
                 <Link to="/login" className="text-[#23A6F0] border font-semibold border-white py-1 rounded">
                         Login
                     </Link>
-                    <Link to="/login" className="text-white bg-[#23A6F0] border font-semibold border-white py-2 px-4 rounded-lg ">
+                    <Link to="/signup" className="text-white bg-[#23A6F0] border font-semibold border-white py-2 px-4 rounded-lg ">
                         Became a Member
                         <FontAwesomeIcon icon={faArrowRight} style={{color: "#ffffff",}} className="pl-4" />
                     </Link>
