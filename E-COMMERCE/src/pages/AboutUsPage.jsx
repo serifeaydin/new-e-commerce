@@ -33,7 +33,7 @@ const AboutUsPage = () => {
 
        {/* Açıklama kısmı*/}
        <div className="flex flex-col items-center bg-white p-8">
-                <div className="text-center md:flex max-w-4xl md:text-start mb-12">
+                <div className="text-center md:flex max-w-4xl md:text-start mt-12 mb-12">
                   <div >
                     <h2 className="text-red-500 font-bold text-sm">Problems trying</h2>
                     <h1 className="text-3xl md:text-2xl font-bold text-gray-800 mb-4">

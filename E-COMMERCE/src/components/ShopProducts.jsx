@@ -28,10 +28,10 @@ const ProductCards = () => {
     return (
       <section className="min-h-screen py-10 px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between  items-center mb-4 mt-8">
+          <div className="md:flex justify-between  items-center mb-4 mt-8">
             <p>Showing all 12 results</p>
             <div className="flex ">
-              <div className="flex  mr-4">
+              <div className="flex items-center px-32 md:flex md:px-6">
                 <button
                   onClick={() => setView("grid")}
                   className={`px-2 py-1 border ${view === "grid" ? "bg-blue-500 text-white" : "bg-gray-200"}`}

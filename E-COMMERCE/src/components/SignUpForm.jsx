@@ -25,10 +25,32 @@ const SignupForm = () => {
 
   const onSubmit = async (data) => {
     setLoading(true);
+    
+    // Kullanıcı rolüne göre veri yapılandırılır
+    const formattedData = isStore
+      ? {
+          name: data.name,
+          email: data.email,
+          password: data.password,
+          role_id: data.role_id,
+          store: {
+            name: data.store.name,
+            phone: data.store.phone,
+            tax_no: data.store.tax_no,
+            bank_account: data.store.bank_account,
+          },
+        }
+      : {
+          name: data.name,
+          email: data.email,
+          password: data.password,
+          role_id: data.role_id,
+        };
+    
     try {
-      await axiosInstance.post('/signup', data);
+      await axiosInstance.post('/signup', formattedData);
       setLoading(false);
-      navigate('/', { state: { message: 'You need to click the link in the email to activate your account!' } });
+      navigate(-1, { state: { message: 'You need to click the link in the email to activate your account!' } });
     } catch (error) {
       setLoading(false);
       console.error('Signup failed:', error);
@@ -36,6 +58,8 @@ const SignupForm = () => {
   };
 
   const selectedRole = watch('role_id');
+  
+  // Seçilen rol izlenir ve mağaza rolü seçildiğinde isStore state'i true olarak ayarlanır
   useEffect(() => {
     setIsStore(selectedRole === '2');
   }, [selectedRole]);
@@ -96,10 +120,12 @@ const SignupForm = () => {
             className="form-select"
             {...register('role_id', { required: true })}
           >
+            <option value="">Select a role</option>
             {roles.map(role => (
               <option key={role.id} value={role.id}>{role.name}</option>
             ))}
           </select>
+          {errors.role_id && <span className="error-message text-sm text-red-500">Role is required</span>}
         </div>
         
         {isStore && (

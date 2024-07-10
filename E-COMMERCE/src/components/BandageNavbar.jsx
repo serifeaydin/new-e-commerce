@@ -39,7 +39,7 @@ const BandageNavbar = () => {
                     <Link to="/team">Team</Link>
                     <Link to="/pages">Pages</Link>
                 </div>
-                <div className="hidden md:flex space-x-16 mr-20  ">
+                <div className="hidden md:flex space-x-16   ">
                 <Link to="/login" className="text-[#23A6F0] border font-semibold border-white py-1 rounded">
                         Login
                     </Link>
