@@ -45,6 +45,8 @@ function Footer() {
                     </div>
                 </div>
             </div>
+            <div className="flex justify-center mt-16">Made With Love By Figmaland All Right Reserved </div>
+
         </footer>
     );
 }
