@@ -10,17 +10,17 @@ import Unsplash5 from "../assets/unsplash_5.png";
 import Team from "../components/Team";
 import Footer from "../layout/Footer";
 import { faFacebook, faInstagram, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import BandageNavbar from "../components/BandageNavbar";
+import ShopNavbar from "../components/ShopNavbar";
 
 
 
 const TeamPage = () => {
     return (
         <div>
-            <BandageNavbar/>
+            <ShopNavbar/>
                 <div>
-                    <p className="font-bold text-[#737373] mt-16 mb-8 ">WHAT WE DO</p>
-                    <h1 className="font-bold  text-5xl">Innovation tailored for you</h1>
+                    <p className="font-bold text-[#737373] mt-16 mb-8 text-center">WHAT WE DO</p>
+                    <h1 className="font-bold  text-5xl text-center">Innovation tailored for you</h1>
                     
     <div className="flex justify-center mt-8 mb-8">
         <Link to="/" className="mx-4 font-bold text-[#252B42 ]">Home</Link>

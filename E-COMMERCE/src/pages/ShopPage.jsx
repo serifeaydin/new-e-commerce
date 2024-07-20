@@ -19,6 +19,7 @@ import Shop3 from "../assets/shop3.jpg";
 import Shop4 from "../assets/shop4.jpg";
 import Shop5 from "../assets/shop5.jpg";
 
+
 function ShopPage(){
   
 
@@ -30,11 +31,11 @@ function ShopPage(){
         <div>
 
            <ShopNavbar/>
-           <section className="md:flex justify-between items-center">
+           <section className="md:flex justify-between items-center ">
     <div className="hidden md:flex text-2xl font-bold pl-8">Shop</div>
     <div className="md:hidden flex text-2xl font-bold justify-center mt-4">Shop</div>
     
-    <div className="hidden md:flex items-center">
+    <div className="hidden md:flex items-center px-8">
         <Link to="/" className="mx-4">Home</Link>
         <FontAwesomeIcon icon={faChevronRight} className="text-[#BDBDBD] mt-1"/>
         <p className="text-[#BDBDBD] mx-4">Shop</p>
@@ -47,7 +48,7 @@ function ShopPage(){
     </div>
 </section>
 
-<div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+<div className="grid grid-cols-1 md:grid-cols-5 gap-4 px-8">
         <div className="relative">
           <img src={Shop1} alt="CLOTHS" className="w-full h-60 object-cover" />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center">

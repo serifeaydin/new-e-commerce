@@ -2,34 +2,34 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import FamilyImage from "../assets/imageFamily.png";
-import BandageNavbar from '../components/BandageNavbar';
 import { faEnvelope, faMapMarkerAlt, faPhone, faShare, faTurnDown } from '@fortawesome/free-solid-svg-icons';
 import Footer from '../layout/Footer';
+import ShopNavbar from '../components/ShopNavbar';
 
 function ContactPage() {
   return (
     <section>
 
-<BandageNavbar/>
+<ShopNavbar/>
 
      {/*Aile Resimli Kısım*/}
-<div className="flex  p-4 items-center h-screen bg-white my-16">
+<div className="flex p-4 items-center h-screen bg-white md:my-16 md:mx-16 mt-64">
   <div className="flex flex-col md:flex-row items-center  bg-white ">
-    <div className="md:w-1/2 text-start md:text-left">
-    <h3 className='mb-8'>CONTACT US</h3>
+    <div className="md:w-1/2 text-center md:text-left">
+    <h3 className='md:mb-8 '>CONTACT US</h3>
       <h1 className="text-4xl font-bold mb-8">Get in touch today!</h1>
       <p className="text-lg mb-4">We know how large objects will act, but things on a small scale</p>
       <p className='text-[#252B42] text-xl font-bold'>Phone ; +451 215 215 </p>
       <p className='text-[#252B42] text-xl font-bold'>Fax : +451 215 215</p>
-      <div className="flex justify-start space-x-4 mt-8 ">
+      <div className="items-center md:flex md:justify-start space-x-4 mt-8 ">
           <a href="#" className="text-[#252B42] hover:text-blue-500"> <FontAwesomeIcon icon={faTwitter} size="xl" /></a>
           <a href="#" className="text-[#252B42] hover:text-blue-500"> <FontAwesomeIcon icon={faFacebook} size="xl" /></a>
           <a href="#" className="text-[#252B42] hover:text-blue-500"> <FontAwesomeIcon icon={faInstagram} size="xl" /></a>
           <a href="#" className="text-[#252B42] hover:text-blue-500"> <FontAwesomeIcon icon={faLinkedin} size="xl" /></a>
         </div>
     </div>
-    <div className="md:w-1/2 flex  relative">
-      <img src={FamilyImage} alt="Girl" className="relative top-0 left-32 z-10 d md:w-full" />
+    <div className=" md:w-1/2 md:flex relative">
+      <img src={FamilyImage} alt="Girl" className="  relative top-0 left-32 z-10 d md:w-full" />
       <div className="absolute top-12 left-44 w-96 h-96 bg-pink-100 rounded-full z-0"></div>
     <div className="absolute top-0 left-24 w-20 h-20 bg-pink-100 rounded-full z-0"></div>
     <div className="absolute top-96 left-32 w-4 h-4 bg-purple-400 rounded-full z-0"></div>

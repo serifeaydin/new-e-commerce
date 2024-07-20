@@ -13,8 +13,8 @@ function ShopNavbar(){
 
     return (
         <section>
-        <nav className='hidden md:block'>
-        <div className='flex w-full h-16 pt-6 px-8 justify-between bg-[#23856D] text-white '>
+        <nav className='hidden md:block '>
+        <div className='flex w-full h-16 pt-6 px-8 justify-between bg-[#252B42] text-white '>
             <div className='flex'>
                 <div className='flex pr-4'>
                     <FontAwesomeIcon icon={faPhone} className='pt-1 pr-1'/>
@@ -86,7 +86,7 @@ function ShopNavbar(){
                  </button>
              </div>
          </div>
-         <div id="mobile-menu" className="hidden md:hidden mt-2 space-y-2">
+         <div id="mobile-menu" className="hidden md:hidden mt-2 space-y-2 ">
                 <Link to="/" className="block">Home</Link>
                 <Link to="/shop" className="block">Shop</Link>
                 <Link to="/about" className="block">About</Link>
@@ -96,8 +96,7 @@ function ShopNavbar(){
                 <Link to="/pages" className="block">Pages</Link>
             </div>
          
-
-         <div id="mobile-menu" className="md:hidden mt-16  space-y-2 text-2xl">
+            <div id="mobile-menu" className="md:hidden mt-16  space-y-2 text-2xl text-center">
          <Link to="/" className="block">Home</Link>
              <Link to="/shop" className="block">Shop</Link>
              <Link to="/about" className="block">About</Link>
@@ -107,8 +106,9 @@ function ShopNavbar(){
              <Link to="/pages" className="block">Pages</Link>
 
          </div>
+        
      </div>
-     <div className='md:hidden flex-col justify-center text-2xl'>
+     <div className='md:hidden flex-col justify-center text-2xl text-center'>
         <div className=''>
              <FontAwesomeIcon icon={faUser} className="text-[#23A6F0]" />
                  <Link to="/login" className="text-[#23A6F0] border  border-white py-1 rounded">

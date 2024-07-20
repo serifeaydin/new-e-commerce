@@ -1,14 +1,12 @@
 import React from "react";
-import DarkNavbar from "../components/DarkNavbar";
-import LightNavbar from "../components/LightNavbar";
+import ShopNavbar from "../components/ShopNavbar"
 import Hero from "../components/Hero";
 
 function Header(){
 
 return(
 <div>
-<DarkNavbar/>
-<LightNavbar/>
+<ShopNavbar/>
 <Hero/>
 </div>
 

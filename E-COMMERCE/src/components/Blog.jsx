@@ -1,98 +1,86 @@
 import React from 'react';
+import Blog1 from "../assets/blog1.png";
+import Blog2 from "../assets/blog2.png";
+import Blog3 from "../assets/blog3.png";
+import Blog4 from "../assets/blog4.png";
+import Blog5 from "../assets/blog5.png";
+import Blog6 from "../assets/blog6.png";
 import BlogCard from './BlogCard';
-import Post1 from '../assets/post1.png';
-import Post2 from '../assets/post2.png';
-import Post3 from '../assets/post3.png';
-import Post4 from '../assets/post4.png';
-import Post5 from '../assets/post5.png';
-import Post6 from '../assets/post6.png';
 
-function Blog(){
-return(
-    <section>
+const Blog = () => {
+  const blogs = [
+    {
+      id: 1,
+      imageUrl: Blog1,
+      category: ['Google', 'Trending', 'New'],
+      title: 'Koudetat à la Maison #1 (L’intégrale)',
+      description: 'We focus on ergonomics and meeting you where you work. It’s only a keystroke away.',
+      date: '22 April 2021',
+      comments: 10,
+    },
+    {
+      id: 2,
+      imageUrl: Blog2,
+      category: ['Google', 'Trending', 'New'],
+      title: 'Koudetat à la Maison #2 (L’intégrale)',
+      description: 'We focus on ergonomics and meeting you where you work. It’s only a keystroke away.',
+      date: '23 April 2021',
+      comments: 8,
+    },
+    {
+      id:3,
+      imageUrl: Blog3, 
+      category: ['Google', 'Trending', 'New'],
+      title: 'Koudetat à la Maison #1 (L’intégrale)',
+      description: 'We focus on ergonomics and meeting you where you work. It’s only a keystroke away.',
+      date: '22 April 2021',
+      comments: 10,
+    },
+    {
+      id: 4,
+      imageUrl: Blog4, 
+      category: ['Google', 'Trending', 'New'],
+      title: 'Koudetat à la Maison #1 (L’intégrale)',
+      description: 'We focus on ergonomics and meeting you where you work. It’s only a keystroke away.',
+      date: '22 April 2021',
+      comments: 10,
+    },
+    {
+      id: 5,
+      imageUrl: Blog5, 
+      category: ['Google', 'Trending', 'New'],
+      title: 'Koudetat à la Maison #1 (L’intégrale)',
+      description: 'We focus on ergonomics and meeting you where you work. It’s only a keystroke away.',
+      date: '22 April 2021',
+      comments: 10,
+    },
+    {
+      id: 6,
+      imageUrl: Blog6, 
+      category: ['Google', 'Trending', 'New'],
+      title: 'Koudetat à la Maison #1 (L’intégrale)',
+      description: 'We focus on ergonomics and meeting you where you work. It’s only a keystroke away.',
+      date: '22 April 2021',
+      comments: 10,
+    },
+  ];
 
-        <div className="md:flex my-8">
-            <BlogCard
-              image={Post1}
-              department="English Department"
-              title="Graphic Design"
-              description="We focus on ergonomics and meeting you where you work. It’s only a keystroke away."
-              price="16.48"
-              salePrice="6.48"
-              lessons="64"
-              hours="22"
-              rating="4.9"
-              sales="15"
-            />
-            <BlogCard
-              image={Post2}
-              department="English Department"
-              title="Graphic Design"
-              description="We focus on ergonomics and meeting you where you work. It’s only a keystroke away."
-              price="16.48"
-              salePrice="6.48"
-              lessons="64"
-              hours="22"
-              rating="4.9"
-              sales="15"
-            />
-          </div>
-          <div className="md:flex my-8">
-          <BlogCard
-              image={Post3}
-              department="English Department"
-              title="Graphic Design"
-              description="We focus on ergonomics and meeting you where you work. It’s only a keystroke away."
-              price="16.48"
-              salePrice="6.48"
-              lessons="64"
-              hours="22"
-              rating="4.9"
-              sales="15"
-            />
-            <BlogCard
-              image={Post4}
-              department="English Department"
-              title="Graphic Design"
-              description="We focus on ergonomics and meeting you where you work. It’s only a keystroke away."
-              price="16.48"
-              salePrice="6.48"
-              lessons="64"
-              hours="22"
-              rating="4.9"
-              sales="15"
-            />
-          </div>
-
-          <div className="md:flex my-8">
-            <BlogCard
-              image={Post5}
-              department="English Department"
-              title="Graphic Design"
-              description="We focus on ergonomics and meeting you where you work. It’s only a keystroke away."
-              price="16.48"
-              salePrice="6.48"
-              lessons="64"
-              hours="22"
-              rating="4.9"
-              sales="15"
-            />
-            <BlogCard
-              image={Post6}
-              department="English Department"
-              title="Graphic Design"
-              description="We focus on ergonomics and meeting you where you work. It’s only a keystroke away."
-              price="16.48"
-              salePrice="6.48"
-              lessons="64"
-              hours="22"
-              rating="4.9"
-              sales="15"
-            />
-          </div>
-
-          </section>
-)
-}
+ 
+  return (
+    <div className="grid md:grid-cols-2 items-center px-32 py-8 ">
+      {blogs.map(blog => (
+        <BlogCard 
+          key={blog.id}
+          imageUrl={blog.imageUrl}
+          category={blog.category}
+          title={blog.title}
+          description={blog.description}
+          date={blog.date}
+          comments={blog.comments}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default Blog;

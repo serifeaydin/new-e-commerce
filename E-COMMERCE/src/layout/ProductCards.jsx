@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import ProductCard from '../components/ProductCard.jsx';
+
 import axios from 'axios';
+import ProductCard from '../components/ProductCard.jsx';
 
 const ProductCards = () => {
    
@@ -25,19 +26,19 @@ const ProductCards = () => {
     }
   
     return (
-      <div className=" min-h-screen py-10">
+      <div className=" min-h-screen py-10 px-10">
         <div className="max-w-7xl ">
          
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
             {products.map((product) => (
                <ProductCard
                key={product.id}
                id={product.id}
                image={product.img}
                title={product.name}
-               department={product.department}
+               department="English Department"
                price={product.price}
-               salePrice={product.salePrice}
+               salePrice="6.48"
              />
             ))}
           </div>

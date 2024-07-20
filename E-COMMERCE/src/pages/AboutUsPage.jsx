@@ -1,19 +1,19 @@
 import React from "react";
 import Team from "../components/Team";
-import BandageNavbar from "../components/BandageNavbar";
 import girlImage from '../assets/imageGirl.png';  
 import Client from "../components/Client";
 import Footer from "../layout/Footer";
 import Girl3 from "../assets/girl3.jfif";
+import ShopNavbar from "../components/ShopNavbar";
 
 
 const AboutUsPage = () => {
     return (
         <div>
-     <BandageNavbar/>
+     <ShopNavbar/>
 
      
-    <div className="flex p-4 items-center h-screen bg-white my-8">
+    <div className="flex p-4 items-center h-screen bg-white my-8 px-10">
       <div className="flex flex-col md:flex-row items-center  bg-white ">
         <div className="md:w-1/2 text-center md:text-left">
         <h3>About Company</h3>
@@ -83,7 +83,7 @@ const AboutUsPage = () => {
 
         <Team/>
 
-        <div className="items-center mt-16">
+        <div className="flex-col text-center mt-16">
             <h1 className="font-bold text-3xl mb-8 mt-8">Big Componies are Here</h1>
             <p className="text-[#737373]">Problems trying to resolve the conflict between <br/>
             the two major realms of Classical physics: Newtonian mechanics </p>

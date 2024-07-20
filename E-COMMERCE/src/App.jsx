@@ -11,6 +11,7 @@ import TeamPage from './pages/TeamPage';
 import AboutUsPage from './pages/AboutUsPage';
 import SignupForm from './components/SignUpForm';
 import BlogPage from './pages/BlogPage';
+import Blog from './components/Blog';
 
 
 
@@ -31,7 +32,7 @@ function App() {
                 <Route path="/about" element={<AboutUsPage/>} />
                 <Route path="/signup" element={<SignupForm/>} />
                 <Route path="/blog" element={<BlogPage/>} />
-
+<Route element={<Blog/>}/>
 
             </Routes>
           
