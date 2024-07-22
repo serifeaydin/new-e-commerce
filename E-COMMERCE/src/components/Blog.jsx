@@ -12,7 +12,7 @@ const Blog = () => {
     {
       id: 1,
       imageUrl: Blog1,
-      category: ['Google', 'Trending', 'New'],
+      categories: ['Google',  'Trending', 'New'],
       title: 'Koudetat à la Maison #1 (L’intégrale)',
       description: 'We focus on ergonomics and meeting you where you work. It’s only a keystroke away.',
       date: '22 April 2021',
@@ -21,7 +21,7 @@ const Blog = () => {
     {
       id: 2,
       imageUrl: Blog2,
-      category: ['Google', 'Trending', 'New'],
+      categories: ['Google',  'Trending', 'New'],
       title: 'Koudetat à la Maison #2 (L’intégrale)',
       description: 'We focus on ergonomics and meeting you where you work. It’s only a keystroke away.',
       date: '23 April 2021',
@@ -30,7 +30,7 @@ const Blog = () => {
     {
       id:3,
       imageUrl: Blog3, 
-      category: ['Google', 'Trending', 'New'],
+      categories: ['Google',  'Trending', 'New'],
       title: 'Koudetat à la Maison #1 (L’intégrale)',
       description: 'We focus on ergonomics and meeting you where you work. It’s only a keystroke away.',
       date: '22 April 2021',
@@ -39,7 +39,7 @@ const Blog = () => {
     {
       id: 4,
       imageUrl: Blog4, 
-      category: ['Google', 'Trending', 'New'],
+      categories: ['Google', 'Trending', 'New'],
       title: 'Koudetat à la Maison #1 (L’intégrale)',
       description: 'We focus on ergonomics and meeting you where you work. It’s only a keystroke away.',
       date: '22 April 2021',
@@ -48,7 +48,7 @@ const Blog = () => {
     {
       id: 5,
       imageUrl: Blog5, 
-      category: ['Google', 'Trending', 'New'],
+      categories: ['Google', 'Trending', 'New'],
       title: 'Koudetat à la Maison #1 (L’intégrale)',
       description: 'We focus on ergonomics and meeting you where you work. It’s only a keystroke away.',
       date: '22 April 2021',
@@ -57,7 +57,7 @@ const Blog = () => {
     {
       id: 6,
       imageUrl: Blog6, 
-      category: ['Google', 'Trending', 'New'],
+      categories: ['Google', 'Trending', 'New'],
       title: 'Koudetat à la Maison #1 (L’intégrale)',
       description: 'We focus on ergonomics and meeting you where you work. It’s only a keystroke away.',
       date: '22 April 2021',
@@ -72,7 +72,7 @@ const Blog = () => {
         <BlogCard 
           key={blog.id}
           imageUrl={blog.imageUrl}
-          category={blog.category}
+          categories={blog.categories}
           title={blog.title}
           description={blog.description}
           date={blog.date}

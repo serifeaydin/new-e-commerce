@@ -32,7 +32,7 @@ function App() {
                 <Route path="/about" element={<AboutUsPage/>} />
                 <Route path="/signup" element={<SignupForm/>} />
                 <Route path="/blog" element={<BlogPage/>} />
-<Route element={<Blog/>}/>
+
 
             </Routes>
           

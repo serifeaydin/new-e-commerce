@@ -3,17 +3,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 import { faChartArea, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-const BlogCard = ({ imageUrl, category, title, description, date, comments }) => {
+const BlogCard = ({ imageUrl, categories, title, description, date, comments }) => {
    
     return (
         <div className="bg-white overflow-hidden rounded-sm shadow-md  py-8 px-2">
             <div className="relative">
-                <img src={imageUrl} alt={title} className="w-full h-80 object-cover" />
+                <img src={imageUrl} alt={title} className="md:w-full md:h-80 object-cover" />
                 <span className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 font-semibold">New</span>
             </div>
             <div className="p-4">
                 <div className="flex items-center space-x-2 text-sm text-gray-500 mb-2">
-                    {category}
+                {categories.map((category, index) => (
+  <button key={index}>{category}</button>
+))}
         
                 </div>
                 <h2 className="text-xl font-bold mb-2">{title}</h2>
