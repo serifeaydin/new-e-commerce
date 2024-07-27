@@ -13,8 +13,8 @@ import SignupForm from './components/SignUpForm';
 import BlogPage from './pages/BlogPage';
 import { ToastContainer } from 'react-toastify';
 import LoginForm from './components/LoginForm';
-
-
+import { Provider } from 'react-redux';
+import store from './store/store'; 
 
 
 
@@ -24,6 +24,7 @@ function App() {
 
   return (
     <>
+     <Provider store={store}>
       <Routes>
                 <Route  path="/" element={<HomePage />} />
                 <Route path="/shop" element={<ShopPage />} />
@@ -38,7 +39,7 @@ function App() {
 
             </Routes>
             <ToastContainer />
-        
+            </Provider>
       </> 
  
   )

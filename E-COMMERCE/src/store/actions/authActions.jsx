@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { setUser } from './clientActions';
 
-// Test kullanıcı bilgilerini buraya ekleyebilirsiniz
 const testUsers = {
   'customer@commerce.com': '123456',
   'store@commerce.com': '123456',
@@ -23,10 +22,7 @@ export const loginUser = (credentials) => {
 
       // Başarılı sonuç döndür
       return { payload: { user, token } };
-    } else {
-      // Giriş başarısız
-      throw new Error('Invalid email or password');
-    }
+    } 
 
     // Gerçek API çağrısı
     try {

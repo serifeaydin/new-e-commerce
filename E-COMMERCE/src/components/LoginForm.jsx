@@ -1,37 +1,31 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import axiosInstance from '../api/axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../store/actions/authActions';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const LoginForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+  const location = useLocation();
+
   const onSubmit = async (data) => {
     try {
-      // Login işlemi için API çağrısı
-      const response = await axiosInstance.post('/login', data);
-      const { user, token } = response.data;
+      const result = await dispatch(loginUser(data));
+      const { token } = result.payload;
       
-      // Kullanıcı bilgilerini ve token'ı sakla
-      localStorage.setItem('token', token);
+      // If remember me is checked, save token to localStorage
+      if (data.remember) {
+        localStorage.setItem('token', token);
+      }
 
-      // Kullanıcıyı yönlendir
-      navigate(-1, { state: { message: 'You are logged in successfully!' } });
-
-      // Kullanıcı bilgilerini Redux store'a kaydet
-      // dispatch(setUser(user));
-
-      // Gravatar resmi için
-      const gravatarUrl = `https://www.gravatar.com/avatar/${md5(user.email.trim().toLowerCase())}`;
-      console.log('Gravatar URL:', gravatarUrl);
-
+      // Redirect to previous page or home
+      const from = location.state?.from?.pathname || '/';
+      navigate(from, { replace: true });
     } catch (error) {
-      // Hata durumunda kullanıcıyı bilgilendir
-      toast.error('Login failed! Please check your email and password.');
-      console.error('Login failed:', error);
+      toast.error('Invalid email or password');
     }
   };
 
@@ -56,9 +50,9 @@ const LoginForm = () => {
             id="password"
             type="password"
             className="w-full p-2 border border-gray-300 rounded bg-white"
-            {...register('password', { required: true, minLength: 8 })}
+            {...register('password', { required: true, minLength: 6 })}
           />
-          {errors.password && <span className="text-red-500 text-sm">Password is required and must be at least 8 characters long</span>}
+          {errors.password && <span className="text-red-500 text-sm">Password is required and must be at least 6 characters long</span>}
         </div>
         
         <button type="submit" className="mb-8 w-full p-2 px-40 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">
