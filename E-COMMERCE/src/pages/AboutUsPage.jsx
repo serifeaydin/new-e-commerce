@@ -71,7 +71,7 @@ const AboutUsPage = () => {
             </div>
             </div>
       {/* Video kısmı */}
-         <div className="flex items-center justify-center h-screen">
+         <div className="flex items-center justify-center h-screen ">
       <iframe 
     height="500" 
     width="800" 
@@ -83,7 +83,7 @@ const AboutUsPage = () => {
 
         <Team/>
 
-        <div className="flex-col text-center mt-16">
+        <div className="flex-col text-center mt-16 mb-16">
             <h1 className="font-bold text-3xl mb-8 mt-8">Big Componies are Here</h1>
             <p className="text-[#737373]">Problems trying to resolve the conflict between <br/>
             the two major realms of Classical physics: Newtonian mechanics </p>

@@ -11,7 +11,7 @@ import md5 from 'md5';
 
 const ShopNavbar = () => {
   const user = useSelector(state => state.client.user);
-
+ 
   const gravatarUrl = user.email 
     ? `https://www.gravatar.com/avatar/${md5(user.email.trim().toLowerCase())}`
     : null;

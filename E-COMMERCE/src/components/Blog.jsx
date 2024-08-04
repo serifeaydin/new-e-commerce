@@ -74,7 +74,7 @@ const Blog = () => {
         <BlogCard 
           key={blog.id}
           imageUrl={blog.imageUrl}
-          categories={blog.category || []}
+          category={blog.category}
           title={blog.title}
           description={blog.description}
           date={blog.date}

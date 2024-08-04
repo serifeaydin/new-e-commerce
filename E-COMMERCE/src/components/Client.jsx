@@ -9,7 +9,7 @@ import Vector6 from "../assets/Vector (6).png";
 function Client() {
     return (
         <section>
-            <div className="flex flex-col md:flex-row justify-between m-6 md:m-16 space-y-4 md:space-y-0">
+            <div className="flex flex-col items-center md:flex-row justify-between m-6 md:m-16 space-y-4 md:space-y-0">
                 <img src={Vector1} className="md:w-20 md:h-20 mx-24 w-32 h-24 pb-8 md:mx-0" />
                 <img src={Vector2} className="md:w-20 md:h-20 mx-24 w-32 pb-8 md:mx-0" />
                 <img src={Vector3} className="md:w-20 md:h-20 mx-24 w-32 pb-8 md:mx-0" />
