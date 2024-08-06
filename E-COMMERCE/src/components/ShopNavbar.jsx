@@ -53,9 +53,9 @@ const ShopNavbar = () => {
         </div>
       </nav>
       
-      <div className="p-4 mb-4">
+      <div className="bg-[#F6F6F6] p-4 mb-4">
         <div className="flex justify-between items-center">
-          <div className="ml-4 text-2xl font-bold">
+          <div className="  ml-4 text-2xl font-bold">
             Bandage
           </div>
           <div className="hidden md:flex space-x-4">
@@ -76,7 +76,7 @@ const ShopNavbar = () => {
               </>
             ) : (
               <>
-                <FontAwesomeIcon icon={faUser} className="text-[#23A6F0]" />
+                <FontAwesomeIcon icon={faUser} className="text-[#23A6F0] " />
                 <Link to="/login" className="text-[#23A6F0] border border-white py-1 rounded">
                   Login/Register
                 </Link>
@@ -93,14 +93,14 @@ const ShopNavbar = () => {
             </Link>
           </div>
 
-          <div className="md:hidden flex space-x-4">
+          <div className="md:hidden bg-[#F6F6F6] flex space-x-4">
             <button>
               <FontAwesomeIcon icon={faBars} id="mobile-menu" className="text-black"/>
             </button>
           </div>
         </div>
         
-        <div id="mobile-menu" className="hidden md:hidden mt-2 space-y-2 ">
+        <div id="mobile-menu" className="hidden md:hidden bg-[#F6F6F6] mt-2 space-y-2 ">
           <Link to="/" className="block">Home</Link>
           <Link to="/shop" className="block">Shop</Link>
           <Link to="/about" className="block">About</Link>
@@ -110,7 +110,7 @@ const ShopNavbar = () => {
           <Link to="/pages" className="block">Pages</Link>
         </div>
         
-        <div id="mobile-menu" className="md:hidden mt-16 space-y-2 text-2xl text-center">
+        <div id="mobile-menu" className="md:hidden mt-16 space-y-2 text-2xl bg-[#F6F6F6] text-center">
           <Link to="/" className="block">Home</Link>
           <Link to="/shop" className="block">Shop</Link>
           <Link to="/about" className="block">About</Link>
@@ -120,9 +120,9 @@ const ShopNavbar = () => {
           <Link to="/pages" className="block">Pages</Link>
         </div>
         
-        <div className='md:hidden flex-col justify-center text-2xl text-center'>
+        <div className='bg-[#F6F6F6] md:hidden flex-col justify-center text-2xl text-center'>
           <div className=''>
-            <FontAwesomeIcon icon={faUser} className="text-[#23A6F0]" />
+            <FontAwesomeIcon icon={faUser} className="text-[#23A6F0] pt-8" />
             <Link to="/login" className="text-[#23A6F0] border border-white py-1 rounded">
               Login/Register
             </Link>

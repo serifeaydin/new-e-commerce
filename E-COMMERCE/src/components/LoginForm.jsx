@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { loginUser } from '../store/actions/authActions';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 const LoginForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -54,16 +56,48 @@ const LoginForm = () => {
           />
           {errors.password && <span className="text-red-500 text-sm">Password is required and must be at least 6 characters long</span>}
         </div>
-        
-        <button type="submit" className="mb-8 w-full p-2 px-40 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">
-          Login
-        </button>
 
-        <Link to="/signup" className="  w-full py-2 px-40 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">
-                     Sign Up
+        <div className='flex justify-between mb-8'>
+        <div>
+        <label  className=" text-[#252B42] ">
+          <input type="checkbox" {...register('rememberMe')} />
+          Remember Me
+        </label>
+      </div>
+       
+                 <Link to="/signup" className="  text-[#252B42]">
+        Forget Password?
+        </Link>
+                 </div>
+        <div className='flex justify-center'>
+        <button type="submit" className="mb-8 w-2/5 p-2 mr-4 text-white bg-[#23A6F0] border-gray-300 border font-bold rounded">
+          Login Now
+        </button>
+        <button type="submit" className="mb-8 w-2/5 p-2 0 font-bold text-white bg-[#23A6F0] border-gray-300 border  rounded">
+        <Link to="/signup" className="text-center ">
+        Create Account
                  </Link>
+        </button>
+        </div>
+
+                  
+        <div className=''>
+         <p>Or you can join with</p>
+         <div className='flex justify-around mt-4'>
+        <button type="submit" className="flex mb-8 text-[#23A6F0] p-2 0 font-bold border-gray-300 border  rounded">
+        <FontAwesomeIcon icon={faGoogle} size="2x" style={{color: "#23A6F0",}} className='mt-1' /> 
+        <Link to="https://google.com/">Login with Google </Link>
+        </button>
+        <button type="submit" className="flex mb-8  p-2 0 font-bold text-[#23A6F0] border-gray-300 border  rounded">
+        <FontAwesomeIcon icon={faFacebook} size="2x" style={{color: "#23A6F0",}} className='mt-1'/>
+        <Link to="https://www.facebook.com">Login with Facebook</Link>
+        </button>
+        </div>
+
+        </div>
       </form>
     </div>
+
   );
 };
 

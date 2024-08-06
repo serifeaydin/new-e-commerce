@@ -13,11 +13,11 @@ const AboutUsPage = () => {
      <ShopNavbar/>
 
      
-    <div className="flex p-4 items-center h-screen bg-white my-8 px-10">
+    <div className="flex p-4 items-center h-screen bg-white my-24 px-10">
       <div className="flex flex-col md:flex-row items-center  bg-white ">
         <div className="md:w-1/2 text-center md:text-left">
-        <h3>About Company</h3>
-          <h1 className="text-4xl font-bold mb-4">ABOUT US</h1>
+        <h3 className="lg:block hidden md:text-lg md:pb-8 md:font-semibold  ">ABOUT COMPANY</h3>
+          <h1 className="text-4xl font-bold md:mb-4">ABOUT US</h1>
           <p className="text-lg mb-4">We know how large objects will act, but things on a small scale</p>
           <button className="bg-blue-500 text-white px-4 py-2 rounded">Get Quote Now</button>
         </div>

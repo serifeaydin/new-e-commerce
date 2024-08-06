@@ -174,7 +174,7 @@ const SignupForm = () => {
           </>
         )}
         
-        <button type="submit" className="w-full p-2 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded" disabled={loading}>
+        <button type="submit" className="w-full p-2 bg-[#23A6F0] hover:bg-blue-700 text-white font-bold rounded" disabled={loading}>
           {loading ? 'Submitting...' : 'Submit'}
         </button>
       </form>
