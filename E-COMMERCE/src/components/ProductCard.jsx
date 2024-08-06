@@ -6,8 +6,9 @@ import { faChartArea, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import Like from "../assets/like.png";
 import Eye from "../assets/eye.png";
 import Basket from "../assets/basket.png";
+import { Link } from 'react-router-dom';
 
-const ProductCard = ({ image, department, title, description, price, salePrice, lessons, hours, rating, sales }) => (
+const ProductCard = ({ id,image, department, title, description, price, salePrice, lessons, hours, rating, sales }) => (
   <div className="max-w-sm bg-white rounded-lg overflow-hidden shadow-lg px-2">
     <div className="relative">
       <img className="w-full h-64 object-cover" src={image} alt="Graphic Design" />
@@ -38,9 +39,13 @@ you where you work. It's only a keystroke away."</p>
         <FontAwesomeIcon icon={faChartArea} className='text-[#23856D]' />
         <p>{sales} Progress</p>
       </div>
+      
+      <Link to={`/product/${id}`} className=" text-[#23A6F0]">
       <button className="mt-4 text-[#23A6F0] border border-[#23A6F0] px-4 py-2 rounded-full">Learn More
       <FontAwesomeIcon icon={faChevronRight} className="text-[#23A6F0] px-2"/>
       </button>
+              </Link>
+    
     </div>
   </div>
 );
