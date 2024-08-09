@@ -6,20 +6,26 @@ import React from "react";
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faHeart, faCartShopping, faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import md5 from 'md5';
+import { logoutUser } from '../store/actions/authActions';
 
 const ShopNavbar = () => {
   const user = useSelector(state => state.client.user);
- 
-  const gravatarUrl = user.email 
-    ? `https://www.gravatar.com/avatar/${md5(user.email.trim().toLowerCase())}`
+  const dispatch = useDispatch();
+
+  const gravatarUrl = user?.email 
+    ? `https://www.gravatar.com/avatar/${md5(user.email.trim().toLowerCase())}?d=identicon`
     : null;
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+  };
 
   return (
     <section>
-      <nav className='hidden md:block '>
-        <div className='flex w-full h-16 pt-6 px-8 justify-between bg-[#252B42] text-white '>
+      <nav className='hidden md:block'>
+        <div className='flex w-full h-16 pt-6 px-8 justify-between bg-[#252B42] text-white'>
           <div className='flex'>
             <div className='flex pr-4'>
               <FontAwesomeIcon icon={faPhone} className='pt-1 pr-1'/>
@@ -55,7 +61,7 @@ const ShopNavbar = () => {
       
       <div className="bg-[#F6F6F6] p-4 mb-4">
         <div className="flex justify-between items-center">
-          <div className="  ml-4 text-2xl font-bold">
+          <div className="ml-4 text-2xl font-bold">
             Bandage
           </div>
           <div className="hidden md:flex space-x-4">
@@ -69,14 +75,15 @@ const ShopNavbar = () => {
           </div>
 
           <div className="hidden md:flex space-x-4 items-center">
-            {user.email ? (
+            {user?.email ? (
               <>
                 <img src={gravatarUrl} alt="User Avatar" className="w-8 h-8 rounded-full" />
                 <span>{user.email}</span>
+                <button onClick={handleLogout} className="text-[#23A6F0]">Logout</button>
               </>
             ) : (
               <>
-                <FontAwesomeIcon icon={faUser} className="text-[#23A6F0] " />
+                <FontAwesomeIcon icon={faUser} className="text-[#23A6F0]" />
                 <Link to="/login" className="text-[#23A6F0] border border-white py-1 rounded">
                   Login/Register
                 </Link>
@@ -100,17 +107,7 @@ const ShopNavbar = () => {
           </div>
         </div>
         
-        <div id="mobile-menu" className="hidden md:hidden bg-[#F6F6F6] mt-2 space-y-2 ">
-          <Link to="/" className="block">Home</Link>
-          <Link to="/shop" className="block">Shop</Link>
-          <Link to="/about" className="block">About</Link>
-          <Link to="/blog" className="block">Blog</Link>
-          <Link to="/contact" className="block">Contact</Link>
-          <Link to="/team" className="block">Team</Link>
-          <Link to="/pages" className="block">Pages</Link>
-        </div>
-        
-        <div id="mobile-menu" className="md:hidden mt-16 space-y-2 text-2xl bg-[#F6F6F6] text-center">
+        <div id="mobile-menu" className="hidden md:hidden bg-[#F6F6F6] mt-2 space-y-2">
           <Link to="/" className="block">Home</Link>
           <Link to="/shop" className="block">Shop</Link>
           <Link to="/about" className="block">About</Link>
@@ -121,26 +118,34 @@ const ShopNavbar = () => {
         </div>
         
         <div className='bg-[#F6F6F6] md:hidden flex-col justify-center text-2xl text-center'>
-          <div className=''>
-            <FontAwesomeIcon icon={faUser} className="text-[#23A6F0] pt-8" />
-            <Link to="/login" className="text-[#23A6F0] border border-white py-1 rounded">
-              Login/Register
-            </Link>
-          </div>
+          {user?.email ? (
+            <>
+              <img src={gravatarUrl} alt="User Avatar" className="w-8 h-8 rounded-full mx-auto" />
+              <span className="block">{user.email}</span>
+              <button onClick={handleLogout} className="text-[#23A6F0] mt-2">Logout</button>
+            </>
+          ) : (
+            <>
+              <FontAwesomeIcon icon={faUser} className="text-[#23A6F0] pt-8" />
+              <Link to="/login" className="text-[#23A6F0] border border-white py-1 rounded mt-2 block">
+                Login/Register
+              </Link>
+            </>
+          )}
           <div className='flex-col'>
             <div>
-              <Link to="/search" className=" text-[#23A6F0]">
+              <Link to="/search" className="text-[#23A6F0]">
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
               </Link>
             </div>
             <div>
-              <Link to="/favorites" className=" text-[#23A6F0]">
+              <Link to="/favorites" className="text-[#23A6F0]">
                 <FontAwesomeIcon icon={faHeart} />
               </Link>
             </div>
             <div>
-              <Link to="/cart" className=" text-[#23A6F0]">
-                <FontAwesomeIcon icon={faCartShopping} className='' />
+              <Link to="/cart" className="text-[#23A6F0]">
+                <FontAwesomeIcon icon={faCartShopping} />
               </Link>
             </div>
           </div>

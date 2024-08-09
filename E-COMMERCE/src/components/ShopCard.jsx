@@ -9,22 +9,22 @@ function ShopCard(){
 
     return(
       
-<div className="md:flex px-8">
-<div className="object-center  md:w-full md:h-full">
-     <div className="relative inline-block">
-      <img src={Image1} className="w-full h-screen"alt="Product"  />
-      <div className="absolute text-start md:w-2/3 md:h-1/2 w-full h-1/2 bottom-0 bg-[#2D8BC0] bg-opacity-80 text-white p-8">
-        <h2 className="text-2xl font-bold text-start mt-12 ">Top Product Of <br/>the Week</h2>
-        <button className="mt-2 px-4 py-2 text-xl  border-2 border-white rounded ">
+<div className="md:flex md:px-0  px-8">
+<div className="object-center md:w-1/2 md:h-full">
+     <div className="relative inline-block md:ml-16 ">
+      <img src={Image1} className=" w-full h-screen md:w-full md:h-auto"alt="Product"  />
+      <div className="absolute text-start md:w-2/3 md:h-1/2 w-full h-1/2 bottom-0 bg-[#2D8BC0] bg-opacity-80 text-white ">
+        <h2 className="text-2xl font-bold text-start mt-12 ml-8 ">Top Product Of <br/>the Week</h2>
+        <button className="mt-2 px-4 py-2 text-xl  ml-8 border-2 border-white rounded ">
           EXPLORE ITEMS
         </button>
       </div>
      </div>
      </div>
 
-  <div className="object-center  md:w-full md:h-full">
-        <div className="relative inline-block">
-    <img src={Image2} alt="Product" className="  h-72 lg:block hidden md:w-full md:h-auto"/>
+  <div className="object-center md:ml-4  md:w-1/2 md:h-full">
+        <div className="relative inline-block ">
+    <img src={Image2} alt="Product" className=" h-1/2 lg:block hidden md:w-full md:h-auto"/>
     <img src={Image4} alt="Product" className="md:hidden  w-full h-screen md:w-full md:h-auto"/>
     <div className="absolute text-start w-full h-1/2 md:w-2/3 md:h-1/2 bottom-0 bg-[#2D8BC0] bg-opacity-80 text-white p-5">
         <h2 className="text-2xl font-bold text-start md:mt-0 mt-16">Top Product Of the Week</h2>
@@ -33,12 +33,12 @@ function ShopCard(){
         </button>
       </div>
     </div>
-    <div className="relative inline-block mt-4">
-    <img src={Image3} alt="Product" className="w-full lg:block hidden h-auto"/>
+    <div className="relative inline-block ">
+    <img src={Image3} alt="Product" className="py-1 w-full h-1/2 lg:block hidden "/>
     <img src={Image5} alt="Product" className="md:hidden  w-full h-screen md:w-full md:h-auto"/>
     <div className="absolute text-start w-full h-1/2 md:w-2/3 md:h-3/5 bottom-0 bg-[#2D8BC0] bg-opacity-80 text-white p-3 ">
         <h2 className="text-2xl font-bold text-start  md:mt-4 mt-16 ">Top Product Of the Week</h2>
-        <button className="mt-4 px-4 py-2 text-xl border-2 border-white rounded">
+        <button className="mt-4 px-4  text-xl border-2 border-white rounded">
           EXPLORE ITEMS
         </button>
       </div>

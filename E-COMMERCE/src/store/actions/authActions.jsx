@@ -4,39 +4,49 @@ import { setUser } from './clientActions';
 const testUsers = {
   'customer@commerce.com': '123456',
   'store@commerce.com': '123456',
-  'admin@commerce.com': '123456'
+  'admin@commerce.com': '123456',
+  'serifecevik93@gmail.com': '123456'
 };
 
-export const loginUser = (credentials) => {
-  return async (dispatch) => {
-    const { email, password } = credentials;
 
-    // Test kullanıcı bilgilerini kontrol et
-    if (testUsers[email] && testUsers[email] === password) {
-      // Başarıyla giriş
-      const user = { email, name: 'Test User' }; // Örnek kullanıcı verisi
-      const token = 'fake-jwt-token'; // Örnek token
+export const setUserFromToken = (token) => async (dispatch) => {
+  try {
+    // Token'ı işlemek ve kullanıcıyı ayarlamak için
+    // token'ı doğrudan kullanın (JWT içeriğini doğrudan kullanabilirsiniz)
+    // Örnek olarak, token'ın içinde user bilgilerini arıyoruz:
+    const user = JSON.parse(atob(token.split('.')[1])); // Token içeriğini çözümleme
+    dispatch(setUser(user));
+  } catch (error) {
+    console.error('Token decode edilemedi', error);
+  }
+};
 
-      // Kullanıcıyı clientReducer'a kaydediyoruz
-      dispatch(setUser(user));
+export const loginUser = (credentials) => async (dispatch) => {
+  const { email, password } = credentials;
 
-      // Başarılı sonuç döndür
-      return { payload: { user, token } };
-    } 
+  if (testUsers[email] && testUsers[email] === password) {
+    const user = { email, name: 'Test User' };
+    const token = 'fake-jwt-token';
 
-    // Gerçek API çağrısı
-    try {
-      const response = await axios.post('/login', credentials);
-      const { user, token } = response.data;
+    dispatch(setUser(user));
+    return { payload: { user, token } };
+  }
 
-      // Kullanıcıyı clientReducer'a kaydediyoruz
-      dispatch(setUser(user));
+  try {
+    const response = await axios.post('/login', credentials);
+    const { user, token } = response.data;
 
-      // Başarılı sonuç döndür
-      return response.data;
-    } catch (error) {
-      // Hata durumunda hata fırlat
-      throw error;
-    }
-  };
+    dispatch(setUser(user));
+    localStorage.setItem('token', token);
+    return { payload: { user, token } };
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const logoutUser = () => (dispatch) => {
+  localStorage.removeItem('token');
+  dispatch({
+    type: 'LOGOUT_USER',
+  });
 };
