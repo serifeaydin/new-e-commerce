@@ -11,7 +11,7 @@ const ProductCards = () => {
     useEffect(() => {
       axios.get('https://620d69fb20ac3a4eedc05e3a.mockapi.io/api/products')
         .then(response => {
-          console.log(response.data); // API'den dönen verileri kontrol edin
+          console.log(response.data); 
           setProducts(response.data);
           setLoading(false);
         })
@@ -31,7 +31,7 @@ const ProductCards = () => {
          
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  ">
             {products.map((product) => (
-               <ProductCard
+               <ProductCard 
                key={product.id}
                id={product.id}
                image={product.img}
