@@ -25,9 +25,19 @@ function ShopPage(){
   const [sortOption, setSortOption] = useState('popularity');
     const [viewMode, setViewMode] = useState('grid');
 
-    const handleSortChange = (event) => {
-      setSortOption(event.target.value);
-  };
+      const [searchTerm, setSearchTerm] = useState('');
+    
+      const handleSortChange = (event) => {
+        setSortOption(event.target.value);
+    };
+      const handleInputChange = (e) => {
+        setSearchTerm(e.target.value);
+      };
+    
+      const handleFilterClick = () => {
+      
+        console.log('Search term:', searchTerm);
+      };
 
 
     return(
@@ -96,7 +106,7 @@ function ShopPage(){
   
   <div className="flex justify-between items-center px-8 my-4">
     <p className="hidden md:flex ">Showing all 12 results</p>
-  <div className="flex items-center space-x-4">
+  <div className="hidden  md:flex items-center space-x-4">
                     <label>Views:</label>
                     <div className="flex">
                         <button onClick={() => setViewMode('grid')} className={`p-2 ${viewMode === 'grid' ? 'bg-blue-500 text-white' : ''}`}>
@@ -107,15 +117,30 @@ function ShopPage(){
                         </button>
                     </div>
                 </div>
-  <section className="md:flex justify-between items-center ">
+  <section className="flex md:flex md:justify-between md:items-center ">
                 {/* Sort Options */}
-                <div className="md:flex items-center px-8">
-                    <label className="mr-2">Sort by:</label>
+                <div className="md:flex md:items-center md:px-8">
+                   
                     <select value={sortOption} onChange={handleSortChange} className="p-2 border border-gray-300 rounded">
                         <option value="popularity">Popularity</option>
                         <option value="price-asc">Price: Low to High</option>
                         <option value="price-desc">Price: High to Low</option>
                     </select>
+                </div>
+                <div className="flex">
+                <input
+        type="text"
+        value={searchTerm}
+        onChange={handleInputChange}
+        placeholder="Search"
+        className="py-2 px-4 border  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+      />
+      <button
+        onClick={handleFilterClick}
+        className="bg-blue-500 text-white font-bold py-2 px-4  shadow-md  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 active:bg-blue-700"
+      >
+        Filter
+      </button>
                 </div>
             </section>
                 

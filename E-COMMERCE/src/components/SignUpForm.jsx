@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';  
 import axiosInstance from '../api/axios';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../layout/Footer';
+import ShopNavbar from './ShopNavbar';
 
 const SignupForm = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -59,12 +61,14 @@ const SignupForm = () => {
 
   const selectedRole = watch('role_id');
   
-  // Seçilen rol izlenir ve mağaza rolü seçildiğinde isStore state'i true olarak ayarlanır
+ 
   useEffect(() => {
     setIsStore(selectedRole === '2');
   }, [selectedRole]);
 
   return (
+    <section>
+      <ShopNavbar/>
     <div className="bg-gray-100 p-8 rounded-lg max-w-md mx-auto">
       <h1 className="text-center mb-4 text-2xl font-bold  text-[#252B42]">Sign Up</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -179,6 +183,8 @@ const SignupForm = () => {
         </button>
       </form>
     </div>
+    <Footer/>
+    </section>
   );
 };
 

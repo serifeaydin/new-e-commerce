@@ -6,6 +6,8 @@ import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import Footer from '../layout/Footer';
+import ShopNavbar from './ShopNavbar';
 
 const LoginForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -32,6 +34,8 @@ const LoginForm = () => {
   };
 
   return (
+    <section>
+      <ShopNavbar/>
     <div className="bg-gray-100 p-8 rounded-lg max-w-md mx-auto">
       <h1 className="text-center mb-4 text-2xl font-bold text-[#252B42]">Login</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -95,6 +99,8 @@ const LoginForm = () => {
         </div>
       </form>
     </div>
+    <Footer/>
+    </section>
   );
 };
 

@@ -1,14 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { faChevronRight, faPhone } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
+import { faChevronDown, faChevronRight, faPhone } from "@fortawesome/free-solid-svg-icons";
+import React, { useEffect, useState } from "react";
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faHeart, faCartShopping, faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import md5 from 'md5';
 import { logoutUser } from '../store/actions/authActions';
+import { fetchCategories } from '../store/actions/globalActions';
 
 const ShopNavbar = () => {
   const user = useSelector(state => state.client.user);
@@ -21,6 +22,25 @@ const ShopNavbar = () => {
   const handleLogout = () => {
     dispatch(logoutUser());
   };
+
+  const categories = useSelector((state) => state.categories.categories || []);
+
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, [dispatch]);
+
+ 
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(prev => !prev);
+  };
+
+  const closeDropdown = () => {
+    setDropdownOpen(false);
+  };
+
 
   return (
     <section>
@@ -64,9 +84,40 @@ const ShopNavbar = () => {
           <div className="ml-4 text-2xl font-bold">
             Bandage
           </div>
-          <div className="hidden md:flex space-x-4">
+          <div className="hidden md:flex space-x-4 items-center">
             <Link to="/">Home</Link>
-            <Link to="/shop">Shop</Link>
+            <div className="relative">
+              <button onClick={toggleDropdown} className="inline-flex items-center">
+                <span>Shop</span>
+                <FontAwesomeIcon icon={faChevronDown} className="pl-1" />
+              </button>
+              {dropdownOpen && (
+                <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+                  <div className=" py-1 grid grid-cols-2 gap-4 px-2" onClick={closeDropdown}>
+                  
+                      <div>
+                      <Link to="/shop/women"><h3 className="text-lg font-semibold underline text-gray-700">Women</h3></Link>
+                      <Link to="/shop/women/dress" ><h3 className="text-sm font-semibold text-gray-700">Dress</h3></Link>
+                      <Link to="/shop/women/shoes" ><h3 className="text-sm font-semibold text-gray-700">Shoes</h3></Link>
+                      <Link to="/shop/women/bags" ><h3 className="text-sm font-semibold text-gray-700">Bags</h3></Link>
+                      <Link to="/shop/women/t-shirt" ><h3 className="text-sm font-semibold text-gray-700">T-shirt</h3></Link>
+                      <Link to="/shop/women/skirt" ><h3 className="text-sm font-semibold text-gray-700">Skirt</h3></Link>
+                      <Link to="/shop/women/jacket" ><h3 className="text-sm font-semibold text-gray-700">Jacket</h3></Link>
+                     </div>
+                     <div>
+                      <Link><h3 className="text-lg font-semibold text-gray-700 underline ">Men</h3></Link>
+                      <Link to="/shop/men/pants" ><h3 className="text-sm font-semibold text-gray-700">Pants</h3></Link>
+                      <Link to="/shop/men/shoes" ><h3 className="text-sm font-semibold text-gray-700">Shoes</h3></Link>
+                      <Link to="/shop/men/bags" ><h3 className="text-sm font-semibold text-gray-700">Bags</h3></Link>
+                      <Link to="/shop/men/t-shirt" ><h3 className="text-sm font-semibold text-gray-700">T-shirt</h3></Link>
+                      <Link to="/shop/men/skirt" ><h3 className="text-sm font-semibold text-gray-700">Skirt</h3></Link>
+                      <Link to="/shop/men/jacket" ><h3 className="text-sm font-semibold text-gray-700">Jacket</h3></Link>
+                      </div>
+                    </div>
+                  
+                </div>
+              )}
+            </div>
             <Link to="/about">About</Link>
             <Link to="/blog">Blog</Link>
             <Link to="/contact">Contact</Link>
@@ -127,7 +178,7 @@ const ShopNavbar = () => {
           ) : (
             <>
               <FontAwesomeIcon icon={faUser} className="text-[#23A6F0] pt-8" />
-              <Link to="/login" className="text-[#23A6F0] border border-white py-1 rounded mt-2 block">
+              <Link to="/login" className="text-[#23A6F0]  py-1 mt-2 block">
                 Login/Register
               </Link>
             </>
