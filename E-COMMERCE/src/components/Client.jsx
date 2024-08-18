@@ -1,21 +1,20 @@
 import React from "react";
-import Vector1 from "../assets/Vector (1).png";
-import Vector2 from "../assets/Vector (2).png";
-import Vector3 from "../assets/Vector (3).png";
-import Vector4 from "../assets/Vector (4).png";
-import Vector5 from "../assets/Vector (5).png";
-import Vector6 from "../assets/Vector (6).png";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAws, faHooli, faLyft, faPiedPiperHat, faRedditAlien, faStripe } from "@fortawesome/free-brands-svg-icons";
 
 function Client() {
     return (
         <section>
-            <div className="flex flex-col items-center md:flex-row justify-between m-6 md:m-16 space-y-4 md:space-y-0">
-                <img src={Vector1} className="md:w-20 md:h-20 mx-24 w-32 h-24 pb-8 md:mx-0" />
-                <img src={Vector2} className="md:w-20 md:h-20 mx-24 w-32 pb-8 md:mx-0" />
-                <img src={Vector3} className="md:w-20 md:h-20 mx-24 w-32 pb-8 md:mx-0" />
-                <img src={Vector6} className="md:w-20 md:h-20 mx-24 w-32 pb-8 md:mx-0" />
-                <img src={Vector5} className="md:w-20 md:h-20 mx-24 w-32 pb-8 md:mx-0" />
-                <img src={Vector4} className="md:w-20 md:h-20 mx-24 w-32 pb-8 md:mx-0 " />
+           
+
+            <div className=" flex justify-center flex-wrap gap-x-20 gap-y-10  text-6xl max-lg:text-7xl max-md:text-8xl max-sm:text-9xl text-gray-500 p-8">
+           <i> <FontAwesomeIcon icon={faHooli} /></i>
+           <i> <FontAwesomeIcon icon={faLyft} /> </i>
+           <i> <FontAwesomeIcon icon={faPiedPiperHat} /> </i>
+           <i> <FontAwesomeIcon icon={faAws} /></i>
+           <i> <FontAwesomeIcon icon={faStripe} /></i>
+           <i> <FontAwesomeIcon icon={faRedditAlien} /></i>
             </div>
         </section>
     );
