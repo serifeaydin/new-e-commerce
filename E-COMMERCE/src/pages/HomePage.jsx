@@ -3,7 +3,7 @@ import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import Client from "../components/Client";
 import ShopCard from "../components/ShopCard";
-import ProductCards from "../layout/ProductCards";
+import ShopProducts from "../components/ShopProducts"
 import FeaturedContent from "../components/FeaturedContent";
 import Features from "../components/Features";
 import FeaturedPost from "../components/FeaturedPost";
@@ -26,7 +26,7 @@ function HomePage(){
           <p className="text-center text-[#737373] mb-12">Problems trying to resolve the conflict between</p>
            
           </div>
-          <ProductCards/>
+          <ShopProducts/>
            <FeaturedContent/>
            <Features/>
            <FeaturedPost/>

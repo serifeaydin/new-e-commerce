@@ -87,8 +87,9 @@ const ShopNavbar = () => {
           <div className="hidden md:flex space-x-4 items-center">
             <Link to="/">Home</Link>
             <div className="relative">
+            <Link to="/shop">Shop</Link>
               <button onClick={toggleDropdown} className="inline-flex items-center">
-                <span>Shop</span>
+                
                 <FontAwesomeIcon icon={faChevronDown} className="pl-1" />
               </button>
               {dropdownOpen && (
@@ -105,7 +106,7 @@ const ShopNavbar = () => {
                       <Link to="/shop/women/jacket" ><h3 className="text-sm font-semibold text-gray-700">Jacket</h3></Link>
                      </div>
                      <div>
-                      <Link><h3 className="text-lg font-semibold text-gray-700 underline ">Men</h3></Link>
+                      <Link to="/shop/men"><h3 className="text-lg font-semibold text-gray-700 underline ">Men</h3></Link>
                       <Link to="/shop/men/pants" ><h3 className="text-sm font-semibold text-gray-700">Pants</h3></Link>
                       <Link to="/shop/men/shoes" ><h3 className="text-sm font-semibold text-gray-700">Shoes</h3></Link>
                       <Link to="/shop/men/bags" ><h3 className="text-sm font-semibold text-gray-700">Bags</h3></Link>
