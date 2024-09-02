@@ -7,4 +7,9 @@ export default defineConfig({
   build: {
     outDir: 'dist', // Çıktı dizininizi buraya belirtin
   },
+  resolve: {
+    alias: {
+      'jwt-decode': 'node_modules/jwt-decode/build/jwt-decode.esm.js'
+    }
+  }
 })

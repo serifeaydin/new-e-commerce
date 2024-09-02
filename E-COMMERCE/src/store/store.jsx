@@ -1,8 +1,7 @@
-import { applyMiddleware, combineReducers, legacy_createStore as createStore } from "redux";
-import {thunk} from 'redux-thunk';
+import { applyMiddleware, combineReducers, legacy_createStore as createStore } from 'redux';
+import { thunk } from 'redux-thunk'; // `default` export'u kullanarak
 import logger from 'redux-logger';
 
-// Reducerlarınızı import edin
 import clientReducer from './reducers/clientReducer';
 import productReducer from './reducers/productReducer';
 import shoppingCartReducer from './reducers/shoppingCartReducer';
@@ -10,7 +9,7 @@ import globalReducer from './reducers/globalReducer';
 
 const rootReducer = combineReducers({
   client: clientReducer,
-  product: productReducer,
+  product: productReducer, // `product` olarak adlandırmalısınız
   shoppingCart: shoppingCartReducer,
   categories: globalReducer,
 });

@@ -9,7 +9,7 @@ function ShopCard(){
 
     return(
       
-<div className="md:flex md:px-0  px-8">
+<div className="md:flex  px-8">
 <div className="object-center md:w-1/2 md:h-full">
      <div className="relative inline-block md:ml-16 ">
       <img src={Image1} className=" w-full h-screen md:w-full md:h-auto"alt="Product"  />

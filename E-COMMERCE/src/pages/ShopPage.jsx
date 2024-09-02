@@ -36,17 +36,18 @@ function ShopPage() {
       });
   }, []);
 
-  const sortedProducts = [...products].sort((a, b) => {
-    if (sortOption === "price-asc") {
-      return a.salePrice - b.salePrice;
-    } else if (sortOption === "price-desc") {
-      return b.salePrice - a.salePrice;
-    } else if (sortOption === "default") {
-      
-      return products.findIndex(product => product.id === a.id) - products.findIndex(product => product.id === b.id);
-    }
-    return 0; 
-  });
+  const filteredAndSortedProducts = [...products]
+    .filter((product) =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .sort((a, b) => {
+      if (sortOption === "price-asc") {
+        return a.salePrice - b.salePrice;
+      } else if (sortOption === "price-desc") {
+        return b.salePrice - a.salePrice;
+      }
+      return 0; // Default or no sorting
+    });
 
   const handleSortChange = (event) => {
     setSortOption(event.target.value);
@@ -57,27 +58,8 @@ function ShopPage() {
   };
 
   const handleFilterClick = () => {
-    const filteredProducts = products.filter((product) =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setSortOption("price-asc"); 
-    setProducts(filteredProducts);
+    // Optional: trigger filtering logic if needed
   };
-
-  const filteredAndSortedProducts = [...products]
-    .filter((product) =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    .sort((a, b) => {
-      if (sortOption === "price-asc") {
-        return a.salePrice - b.salePrice;
-      } else if (sortOption === "price-desc") {
-        return b.salePrice - a.salePrice;
-      } else if (sortOption === "default") {
-        return products.findIndex(product => product.id === a.id) - products.findIndex(product => product.id === b.id);
-      }
-      return 0; 
-    });
 
   return (
     <div>
@@ -100,44 +82,23 @@ function ShopPage() {
       </section>
 
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4 px-8 mt-4 mb-8">
-        <div className="relative">
-          <img src={Shop1} alt="CLOTHS" className="w-full h-60 object-cover" />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center">
-            <h2 className="text-white text-xl font-bold">CLOTHS</h2>
-            <p className="text-white">5 items</p>
+        {/* Category sections */}
+        {[
+          { src: Shop1, alt: "CLOTHS", text: "CLOTHS" },
+          { src: Shop2, alt: "SHOES/BAGS", text: "SHOES/BAGS" },
+          { src: Shop3, alt: "HOME/DESIGN", text: "HOME/DESIGN" },
+          { src: Shop4, alt: "COSMETIC", text: "COSMETIC" },
+          { src: Shop5, alt: "ELECTRONIC", text: "ELECTRONIC" },
+        ].map(({ src, alt, text }) => (
+          <div key={alt} className="relative">
+            <img src={src} alt={alt} className="w-full h-60 object-cover" />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center">
+              <h2 className="text-white text-xl font-bold">{text}</h2>
+              <p className="text-white">5 items</p>
+            </div>
           </div>
-        </div>
-        <div className="relative">
-          <img src={Shop2} alt="SHOES/BAGS" className="w-full h-60 object-cover" />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center">
-            <h2 className="text-white text-xl font-bold">SHOES/BAGS</h2>
-            <p className="text-white">5 items</p>
-          </div>
-        </div>
-        <div className="relative">
-          <img src={Shop3} alt="HOME/DESIGN" className="w-full h-60 object-cover" />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center">
-            <h2 className="text-white text-xl font-bold">HOME/DESIGN</h2>
-            <p className="text-white">5 items</p>
-          </div>
-        </div>
-        <div className="relative">
-          <img src={Shop4} alt="COSMETIC" className="w-full h-60 object-cover" />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center">
-            <h2 className="text-white text-xl font-bold">COSMETIC</h2>
-            <p className="text-white">5 items</p>
-          </div>
-        </div>
-        <div className="relative">
-          <img src={Shop5} alt="ELECTRONIC" className="w-full h-60 object-cover" />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center">
-            <h2 className="text-white text-xl font-bold">ELECTRONIC</h2>
-            <p className="text-white">5 items</p>
-          </div>
-        </div>
+        ))}
       </div>
-
-    
 
       <div className="flex justify-between items-center px-8 my-4">
         <p className="hidden md:flex">Showing all {filteredAndSortedProducts.length} results</p>
@@ -185,16 +146,20 @@ function ShopPage() {
       </div>
 
       <div className={`grid ${viewMode === "grid" ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" : "grid-cols-1"} px-8`}>
-        {filteredAndSortedProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            id={product.id}
-            image={product.img}
-            title={product.name}
-            price={product.price}
-            salePrice={product.salePrice}
-          />
-        ))}
+        {filteredAndSortedProducts.length ? (
+          filteredAndSortedProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              id={product.id}
+              image={product.img}
+              title={product.name}
+              price={product.price}
+              salePrice={product.salePrice}
+            />
+          ))
+        ) : (
+          <p className="text-center py-4">No products found</p>
+        )}
       </div>
 
       <Client />
