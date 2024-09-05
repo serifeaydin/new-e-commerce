@@ -13,12 +13,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faGrip, faListUl } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
+import favoritesReducer from "../store/reducers/favoritesReducer";
+import { useSelector } from "react-redux";
 
 function ShopPage() {
   const [products, setProducts] = useState([]);
   const [sortOption, setSortOption] = useState("default");
   const [viewMode, setViewMode] = useState("grid");
   const [searchTerm, setSearchTerm] = useState("");
+
+  const favorites = useSelector((state) => state.favorites.favorites);
+
 
   useEffect(() => {
     axios
@@ -55,6 +60,12 @@ function ShopPage() {
       } else if (sortOption === "rating-desc"){
         return b.rating - a.rating ;
       }
+     if (sortOption === "favorites") {
+      // Favoriler en üstte sıralanır
+      const isAFavorite = favorites.some((fav) => fav.id === a.id);
+      const isBFavorite = favorites.some((fav) => fav.id === b.id);
+      return isBFavorite - isAFavorite; // Favori olanları öne al
+    }
       return 0; // Default or no sorting
     });
 
@@ -136,6 +147,8 @@ function ShopPage() {
               <option value="price-desc">Price: High to Low</option>
               <option value="rating-asc">Rating: Low to High</option>
               <option value="rating-desc">Rating: High to Low</option>
+              <option value="favorites">Favorites</option> 
+
             </select>
           </div>
           <div className="flex">

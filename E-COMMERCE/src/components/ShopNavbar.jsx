@@ -14,7 +14,7 @@ import { fetchCategories } from '../store/actions/globalActions';
 const ShopNavbar = () => {
   const user = useSelector(state => state.client.user);
   const dispatch = useDispatch();
-
+  const favoriteCount = useSelector((state) => state.favorites.favorites.length);
   const gravatarUrl = user?.email 
     ? `https://www.gravatar.com/avatar/${md5(user.email.trim().toLowerCase())}?d=identicon`
     : null;
@@ -146,6 +146,11 @@ const ShopNavbar = () => {
             </Link>
             <Link to="/favorites" className="text-[#23A6F0]">
               <FontAwesomeIcon icon={faHeart} />
+              {favoriteCount > 0 && (
+          <span className="absolute top-24 right-14 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+            {favoriteCount}
+          </span>
+        )}
             </Link>
             <Link to="/cart" className="text-[#23A6F0]">
               <FontAwesomeIcon icon={faCartShopping} className='pr-6' />
