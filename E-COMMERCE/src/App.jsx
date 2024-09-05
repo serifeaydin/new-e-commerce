@@ -11,7 +11,7 @@ import BlogPage from './pages/BlogPage';
 import { ToastContainer } from 'react-toastify';
 import LoginForm from './components/LoginForm';
 import { Provider, useDispatch } from 'react-redux';
-import store from './store/store'; 
+import store from './store/store';
 import { useEffect } from 'react';
 import { setUserFromToken } from './store/actions/authActions';
 

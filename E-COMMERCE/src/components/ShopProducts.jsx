@@ -10,10 +10,14 @@ const ProductCards = () => {
     const [loading, setLoading] = useState(true);
   
     useEffect(() => {
-      axios.get('https://620d69fb20ac3a4eedc05e3a.mockapi.io/api/products')
+      axios.get('https://workintech-fe-ecommerce.onrender.com/products')
         .then(response => {
-          console.log(response.data); 
-          setProducts(response.data);
+          console.log(response.data);  // Gelen veri obje mi yoksa dizi mi?
+          if (Array.isArray(response.data)) {
+            setProducts(response.data);
+          } else {
+            setProducts(response.data.products);  // Eğer ürünler 'products' içinde olsaydı.
+          }
           setLoading(false);
         })
         .catch(error => {
@@ -21,7 +25,6 @@ const ProductCards = () => {
           setLoading(false);
         });
     }, []);
-  
     if (loading) {
       return <div className="text-center mt-20">Loading...</div>;
     }
@@ -36,10 +39,11 @@ const ProductCards = () => {
                 <ProductCard
                   key={product.id}
                   id={product.id}
-                  image={product.img}
+                  image={product.images[0].url}
                   title={product.name}
-                  department="English Department"
+                  description={product.description}
                   price={product.price}
+                  rating={product.rating}
                   salePrice={salePrice}  // Hesaplanan indirimli fiyat
                 />
               );

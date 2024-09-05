@@ -22,14 +22,18 @@ function ShopPage() {
 
   useEffect(() => {
     axios
-      .get("https://620d69fb20ac3a4eedc05e3a.mockapi.io/api/products")
+      .get("https://workintech-fe-ecommerce.onrender.com/products")
       .then((response) => {
-        const data = response.data.map((product) => ({
-          ...product,
-          salePrice: parseFloat((product.price * 0.8).toFixed(2)), 
-        }));
-        setProducts(data);
-        console.log("Fetched Products:", data);
+        console.log("API Response:", response.data);
+        if (Array.isArray(response.data.products)) {
+          const data = response.data.products.map((product) => ({
+            ...product,
+            salePrice: parseFloat((product.price * 0.8).toFixed(2)), // %20 indirim
+          }));
+          setProducts(data);
+        } else {
+          console.error("Products field is not an array.");
+        }
       })
       .catch((error) => {
         console.error("Error fetching the products", error);
@@ -45,6 +49,11 @@ function ShopPage() {
         return a.salePrice - b.salePrice;
       } else if (sortOption === "price-desc") {
         return b.salePrice - a.salePrice;
+      }
+      if(sortOption === "rating-asc"){
+        return a.rating - b.rating;
+      } else if (sortOption === "rating-desc"){
+        return b.rating - a.rating ;
       }
       return 0; // Default or no sorting
     });
@@ -125,6 +134,8 @@ function ShopPage() {
               <option value="default">Default</option>
               <option value="price-asc">Price: Low to High</option>
               <option value="price-desc">Price: High to Low</option>
+              <option value="rating-asc">Rating: Low to High</option>
+              <option value="rating-desc">Rating: High to Low</option>
             </select>
           </div>
           <div className="flex">
@@ -151,9 +162,11 @@ function ShopPage() {
             <ProductCard
               key={product.id}
               id={product.id}
-              image={product.img}
+              image={product.images[0].url}
               title={product.name}
+              description={product.description}
               price={product.price}
+              rating={product.rating}
               salePrice={product.salePrice}
             />
           ))
