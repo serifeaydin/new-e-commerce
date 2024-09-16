@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import { useParams, useNavigate, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import ShopNavbar from "../components/ShopNavbar";
 import Footer from "../layout/Footer";
 import Client from "../components/Client";
@@ -11,12 +12,11 @@ import Shop4 from "../assets/shop4.jpg";
 import Shop5 from "../assets/shop5.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faGrip, faListUl } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
-import favoritesReducer from "../store/reducers/favoritesReducer";
-import { useSelector } from "react-redux";
 
 function ShopPage() {
+  const { categoryId } = useParams();
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [sortOption, setSortOption] = useState("default");
   const [viewMode, setViewMode] = useState("grid");
@@ -24,10 +24,21 @@ function ShopPage() {
 
   const favorites = useSelector((state) => state.favorites.favorites);
 
+  const fetchProducts = () => {
+    const params = new URLSearchParams();
 
-  useEffect(() => {
+    if (categoryId) {
+      params.append('category', categoryId);
+    }
+    if (searchTerm) {
+      params.append('filter', searchTerm);
+    }
+    if (sortOption && sortOption !== "default") {
+      params.append('sort', sortOption);
+    }
+
     axios
-      .get("https://workintech-fe-ecommerce.onrender.com/products")
+      .get(`https://workintech-fe-ecommerce.onrender.com/products?${params.toString()}`)
       .then((response) => {
         console.log("API Response:", response.data);
         if (Array.isArray(response.data.products)) {
@@ -43,34 +54,33 @@ function ShopPage() {
       .catch((error) => {
         console.error("Error fetching the products", error);
       });
-  }, []);
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, [categoryId, sortOption, searchTerm]);
 
   const filteredAndSortedProducts = [...products]
-    .filter((product) =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    )
     .sort((a, b) => {
       if (sortOption === "price-asc") {
         return a.salePrice - b.salePrice;
       } else if (sortOption === "price-desc") {
         return b.salePrice - a.salePrice;
-      }
-      if(sortOption === "rating-asc"){
+      } else if (sortOption === "rating-asc") {
         return a.rating - b.rating;
-      } else if (sortOption === "rating-desc"){
-        return b.rating - a.rating ;
+      } else if (sortOption === "rating-desc") {
+        return b.rating - a.rating;
+      } else if (sortOption === "favorites") {
+        const isAFavorite = favorites.some((fav) => fav.id === a.id);
+        const isBFavorite = favorites.some((fav) => fav.id === b.id);
+        return isBFavorite - isAFavorite;
       }
-     if (sortOption === "favorites") {
-      // Favoriler en üstte sıralanır
-      const isAFavorite = favorites.some((fav) => fav.id === a.id);
-      const isBFavorite = favorites.some((fav) => fav.id === b.id);
-      return isBFavorite - isAFavorite; // Favori olanları öne al
-    }
-      return 0; // Default or no sorting
+      return 0;
     });
 
   const handleSortChange = (event) => {
     setSortOption(event.target.value);
+    navigate(`?category=${categoryId}&filter=${searchTerm}&sort=${event.target.value}`);
   };
 
   const handleInputChange = (e) => {
@@ -78,7 +88,11 @@ function ShopPage() {
   };
 
   const handleFilterClick = () => {
-    // Optional: trigger filtering logic if needed
+    navigate(`?category=${categoryId}&filter=${searchTerm}&sort=${sortOption}`);
+  };
+
+  const handleCategoryClick = (id) => {
+    navigate(`/shop/${id}`);
   };
 
   return (
@@ -102,16 +116,19 @@ function ShopPage() {
       </section>
 
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4 px-8 mt-4 mb-8">
-        {/* Category sections */}
-        {[
-          { src: Shop1, alt: "CLOTHS", text: "CLOTHS" },
-          { src: Shop2, alt: "SHOES/BAGS", text: "SHOES/BAGS" },
-          { src: Shop3, alt: "HOME/DESIGN", text: "HOME/DESIGN" },
-          { src: Shop4, alt: "COSMETIC", text: "COSMETIC" },
-          { src: Shop5, alt: "ELECTRONIC", text: "ELECTRONIC" },
-        ].map(({ src, alt, text }) => (
-          <div key={alt} className="relative">
-            <img src={src} alt={alt} className="w-full h-60 object-cover" />
+        {[ 
+          { id: 1, src: Shop1, text: "CLOTHS" },
+          { id: 2, src: Shop2, text: "SHOES/BAGS" },
+          { id: 3, src: Shop3, text: "HOME/DESIGN" },
+          { id: 4, src: Shop4, text: "COSMETIC" },
+          { id: 5, src: Shop5, text: "ELECTRONIC" }
+        ].map(({ id, src, text }) => (
+          <div
+            key={id}
+            className="relative cursor-pointer"
+            onClick={() => handleCategoryClick(id)}
+          >
+            <img src={src} alt={text} className="w-full h-60 object-cover" />
             <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center">
               <h2 className="text-white text-xl font-bold">{text}</h2>
               <p className="text-white">5 items</p>
@@ -147,8 +164,7 @@ function ShopPage() {
               <option value="price-desc">Price: High to Low</option>
               <option value="rating-asc">Rating: Low to High</option>
               <option value="rating-desc">Rating: High to Low</option>
-              <option value="favorites">Favorites</option> 
-
+              <option value="favorites">Favorites</option>
             </select>
           </div>
           <div className="flex">
@@ -175,7 +191,7 @@ function ShopPage() {
             <ProductCard
               key={product.id}
               id={product.id}
-              image={product.images[0].url}
+              image={product.images[0]?.url || ""}
               title={product.name}
               description={product.description}
               price={product.price}
