@@ -21,7 +21,7 @@ const ProductCard = ({ id, image, title, description, price, salePrice, rating }
   };
 
   return (
-    <div className="max-w-sm bg-white rounded-lg overflow-hidden shadow-lg px-2">
+    <div className="max-w-sm bg-white rounded-lg overflow-hidden shadow-lg  mb-8 mr-4">
       <div className="relative">
         <img className="w-full h-64 object-cover" src={image} alt="Product" />
         <span className="absolute top-2 left-2 bg-red-500 text-white text-sm px-2 font-semibold">Sale</span>
