@@ -4,16 +4,21 @@ import logger from 'redux-logger';
 
 import clientReducer from './reducers/clientReducer';
 import productReducer from './reducers/productReducer';
+import productDetailReducer from './reducers/productReducer';
 import shoppingCartReducer from './reducers/shoppingCartReducer';
 import globalReducer from './reducers/globalReducer';
 import favoritesReducer from './reducers/favoritesReducer';
+import cartReducer from './reducers/cartReducer';
+
 
 const rootReducer = combineReducers({
   client: clientReducer,
-  product: productReducer, // `product` olarak adlandırmalısınız
+  product: productReducer, 
   shoppingCart: shoppingCartReducer,
   categories: globalReducer,
-  favorites: favoritesReducer
+  favorites: favoritesReducer,
+  productDetail:productDetailReducer,
+  cart:cartReducer
 });
 
 const store = createStore(

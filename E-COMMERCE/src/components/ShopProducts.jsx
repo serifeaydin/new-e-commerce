@@ -68,6 +68,7 @@ const ProductCards = () => {
                 price={product.price}
                 rating={product.rating}
                 salePrice={product.salePrice} 
+                category_id={product.category_id}
               />
             ))}
           </div>

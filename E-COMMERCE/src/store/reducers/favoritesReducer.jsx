@@ -1,3 +1,5 @@
+
+
 const initialState = {
     favorites: [], // Favori ürünler burada tutulacak
   };

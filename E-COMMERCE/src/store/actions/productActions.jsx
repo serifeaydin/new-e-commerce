@@ -7,7 +7,13 @@ import {
   SET_OFFSET,
   SET_FILTER,
   FETCH_PRODUCTS_URL,
+  FETCH_PRODUCT_REQUEST,
+  FETCH_PRODUCT_SUCCESS,
+  FETCH_PRODUCT_FAIL,
 } from "../actions/actionTypes";
+
+
+
 import axios from "axios";
 
 // Set categories action
@@ -71,9 +77,9 @@ export const fetchProducts = (gender, limit, offset, filter) => async (dispatch)
 };
 
 // Set category action
-export const setCategory = (categoryId) => ({
+export const setCategory = (category_id) => ({
   type: SET_CATEGORY,
-  payload: categoryId,
+  payload: category_id,
 });
 
 // Set sort option action
@@ -81,3 +87,19 @@ export const setSort = (sortValue) => ({
   type: SET_SORT,
   payload: sortValue,
 });
+
+export const fetchProductDetail = (productId) => async (dispatch) => {
+  dispatch({ type: "FETCH_PRODUCT_REQUEST" });
+  try {
+    const response = await axios.get(`/products/${productId}`);
+    dispatch({
+      type: "FETCH_PRODUCT_SUCCESS",
+      payload: response.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: "FETCH_PRODUCT_FAIL",
+      payload: error.message,
+    });
+  }
+};
