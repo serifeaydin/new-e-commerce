@@ -8,7 +8,7 @@ import { faHeart, faCartShopping, faMagnifyingGlass, faBars } from '@fortawesome
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import md5 from 'md5';
-import { logoutUser } from '../store/actions/authActions';
+import { logoutUser } from '../store/actions/clientActions';
 import { fetchCategories } from '../store/actions/globalActions';
 
 const ShopNavbar = () => {

@@ -13,7 +13,7 @@ import LoginForm from './components/LoginForm';
 import { Provider, useDispatch } from 'react-redux';
 import store from './store/store';
 import { useEffect } from 'react';
-import { setUserFromToken } from './store/actions/authActions';
+import { setUserFromToken } from './store/actions/clientActions';
 
 function App() {
   const dispatch = useDispatch();
