@@ -1,5 +1,6 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
+
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
 import ProductDetailPage from './pages/ProductDetailPage';
@@ -8,6 +9,8 @@ import TeamPage from './pages/TeamPage';
 import AboutUsPage from './pages/AboutUsPage';
 import SignupForm from './components/SignUpForm';
 import BlogPage from './pages/BlogPage';
+import CartPage from './pages/CartPage';
+
 import { ToastContainer } from 'react-toastify';
 import LoginForm from './components/LoginForm';
 import { Provider, useDispatch } from 'react-redux';
@@ -43,7 +46,10 @@ function App() {
         <Route path="/signup" element={<SignupForm/>} />
         <Route path="/blog" element={<BlogPage/>} />
         <Route path="/login" element={<LoginForm/>} />
-      
+        <Route path="/cart" element={<CartPage/>} />
+
+
+
       </Routes>
       <ToastContainer />
     </Provider>

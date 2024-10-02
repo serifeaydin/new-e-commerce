@@ -1,5 +1,5 @@
 // store/reducers/cartReducer.js
-import { ADD_TO_CART, REMOVE_FROM_CART, UPDATE_CART_ITEM } from "../actions/actionTypes";
+import { ADD_TO_CART, REMOVE_FROM_CART, UPDATE_CART_ITEM, UPDATE_CART_ITEM_QUANTITY } from "../actions/actionTypes";
 
 const initialState = {
   cartItems: [],
@@ -24,20 +24,31 @@ const cartReducer = (state = initialState, action) => {
         };
       }
 
-    case REMOVE_FROM_CART:
-      // Sepetten ürünü çıkarma mantığı
-      return {
-        ...state,
-        cartItems: state.cartItems.filter(item => item.id !== action.payload.id),
-      };
+      case REMOVE_FROM_CART:
+        // Ürünü sepetten kaldırma
+        return {
+          ...state,
+          cartItems: state.cartItems.filter(item => item.id !== action.payload),
+        };
+  
 
     case UPDATE_CART_ITEM:
-      // Sepet öğesini güncelleme mantığı
+      
       return {
         ...state,
         cartItems: state.cartItems.map(item =>
           item.id === action.payload.id ? { ...item, quantity: action.payload.quantity } : item
         ),
+      };
+      case UPDATE_CART_ITEM_QUANTITY:
+      return {
+        ...state,
+        cartItems: state.cartItems.map(item => {
+          if (item.id === action.payload.id) {
+            return { ...item, quantity: item.quantity + action.payload.quantityChange };
+          }
+          return item;
+        }),
       };
 
     default:
