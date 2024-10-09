@@ -17,7 +17,7 @@ import { Provider, useDispatch } from 'react-redux';
 import store from './store/store';
 import { useEffect } from 'react';
 import { setUserFromToken } from './store/actions/clientActions';
-import FavoritosPage from './pages/FavoritosPage';
+import FavoritesPage from './pages/FavoritesPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -45,7 +45,7 @@ function App() {
         <Route path="/blog" element={<BlogPage/>} />
         <Route path="/login" element={<LoginForm/>} />
         <Route path="/cart" element={<CartPage/>} />
-        <Route path="/favorites" element={<FavoritosPage/>} />
+        <Route path="/favorites" element={<FavoritesPage/>} />
 
       </Routes>
       <ToastContainer />

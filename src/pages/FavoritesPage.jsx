@@ -5,7 +5,7 @@ import ShopNavbar from '../components/ShopNavbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons';
 
-const FavoritosPage = () => {
+const FavoritesPage = () => {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.favorites || []);
 
@@ -47,4 +47,4 @@ const FavoritosPage = () => {
     </div>
   );
 };
- export default FavoritosPage;
+ export default FavoritesPage;
