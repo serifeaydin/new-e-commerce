@@ -13,7 +13,8 @@ import Description from "../components/Description";
 import ShopNavbar from "../components/ShopNavbar";
 
 function ProductDetailPage() {
-  const { id } = useParams();
+  const { id, title } = useParams();
+  
   const [product, setProduct] = React.useState(null);
 
   React.useEffect(() => {

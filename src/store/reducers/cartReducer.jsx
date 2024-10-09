@@ -40,6 +40,8 @@ const cartReducer = (state = initialState, action) => {
           item.id === action.payload.id ? { ...item, quantity: action.payload.quantity } : item
         ),
       };
+
+      
       case UPDATE_CART_ITEM_QUANTITY:
       return {
         ...state,

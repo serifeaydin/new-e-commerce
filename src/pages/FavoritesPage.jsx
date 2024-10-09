@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleFavorite } from '../store/actions/favoritesActions'; // Doğru aksiyonu import et
 import ShopNavbar from '../components/ShopNavbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons';
+import {  faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons';
 
 const FavoritosPage = () => {
   const dispatch = useDispatch();
@@ -47,5 +47,4 @@ const FavoritosPage = () => {
     </div>
   );
 };
-
-export default FavoritosPage;
+ export default FavoritosPage;

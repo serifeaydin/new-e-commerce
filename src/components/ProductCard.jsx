@@ -26,7 +26,7 @@ const ProductCard = ({ id, image, category_id, title, description, price, salePr
   const handleAddToCart = () => {
     const product = { id, title, image, salePrice };
     dispatch(addToCart(product));
-    setIsInCart(true); // Sepete eklendiğinde durumu güncelle
+    setIsInCart(true);
   };
 
   return (
@@ -78,9 +78,8 @@ const ProductCard = ({ id, image, category_id, title, description, price, salePr
         </div>
 
         <Link
-          to={`/shop/${id}/${title.replace(/\s+/g, '-').toLowerCase()}`}
-          className="text-[#23A6F0]"
-        >
+  to={`/product/${title.replace(/\s+/g, '-').toLowerCase()}/${id}`}
+>
           <button className="mt-4 text-[#23A6F0] border border-[#23A6F0] px-4 py-2 rounded-full">
             Learn More
             <FontAwesomeIcon icon={faChevronRight} className="text-[#23A6F0] px-2" />

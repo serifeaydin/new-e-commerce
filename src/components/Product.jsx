@@ -1,18 +1,27 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping, faChevronRight, faEye, faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
-import { faHeart, faStar as farStar } from '@fortawesome/free-regular-svg-icons';
+import { faCartShopping, faChevronRight, faEye, faStar as fasStar, faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons'; // Solid kalp
+import { faHeart as farHeart, faStar as farStar } from '@fortawesome/free-regular-svg-icons'; // Regular kalp
 import { Link } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
+import { addToFavorites } from '../store/actions/favoritesActions';
+import { addToCart } from '../store/actions/cartActions';
 
 const Product = ({ product }) => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
+  const dispatch = useDispatch();
+
+  // Favoriler ve sepette olma durumunu takip eden state'ler
+  const [isFavorited, setIsFavorited] = useState(false);
+  const [isInCart, setIsInCart] = useState(false);
+
+  const handleAddToFavorites = () => {
+    dispatch(addToFavorites(product));
+    setIsFavorited(!isFavorited); // Kalbi kırmızı yapmak için durumu güncelle
+  };
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+    setIsInCart(true); // Sepeti kırmızı yapmak için durumu güncelle
   };
 
   return (
@@ -33,7 +42,8 @@ const Product = ({ product }) => {
         <div className="bg-white shadow-md rounded-lg overflow-hidden">
           <div className="flex flex-col md:flex-row">
             <div className="w-full md:w-1/2 p-4">
-              <div {...settings}>
+              {/* Ürün görselleri */}
+              <div>
                 {product.images.map((image, index) => (
                   <div key={index}>
                     <img src={image.url} alt={`Product image ${index + 1}`} className="w-full h-auto object-cover" />
@@ -73,11 +83,11 @@ const Product = ({ product }) => {
               <div className='flex'>
                 <button className="bg-[#23A6F0] text-white px-6 mr-4 py-3 rounded">Select Options</button>
                 <div className="flex items-center pr-4">
-                  <button className="text-gray-500 mr-4">
-                    <FontAwesomeIcon icon={faHeart} />
+                  <button className="text-gray-500 mr-4" onClick={handleAddToFavorites}>
+                    <FontAwesomeIcon icon={isFavorited ? fasHeart : farHeart} style={{ color: isFavorited ? 'red' : 'gray' }} />
                   </button>
-                  <button className="text-gray-500 mr-4">
-                    <FontAwesomeIcon icon={faCartShopping} />
+                  <button className="text-gray-500 mr-4" onClick={handleAddToCart}>
+                    <FontAwesomeIcon icon={faCartShopping} style={{ color: isInCart ? 'red' : 'gray' }} />
                   </button>
                   <button className="text-gray-500">
                     <FontAwesomeIcon icon={faEye} />
