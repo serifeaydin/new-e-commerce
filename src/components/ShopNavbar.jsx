@@ -25,7 +25,7 @@ const ShopNavbar = () => {
     dispatch(logoutUser());
   };
 
-  const categories = useSelector((state) => state.categories.categories || []);
+
 
   useEffect(() => {
     dispatch(fetchCategories());
@@ -34,6 +34,7 @@ const ShopNavbar = () => {
  
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(prev => !prev);
@@ -43,6 +44,9 @@ const ShopNavbar = () => {
     setDropdownOpen(false);
   };
 
+ const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <section>
@@ -165,12 +169,26 @@ const ShopNavbar = () => {
             </Link>
           </div>
 
-          <div className="md:hidden bg-[#F6F6F6] flex space-x-4">
-            <button>
+          <div className="md:hidden flex items-center">
+            <button onClick={toggleMenu}>
               <FontAwesomeIcon icon={faBars} id="mobile-menu" className="text-black"/>
             </button>
           </div>
         </div>
+
+        {/* Mobil menü */}
+        {isMenuOpen && (
+          <div className="bg-[#F6F6F6] text-xl mt-2 flex flex-col items-center space-y-2">
+            <Link to="/" className="block">Home</Link>
+            <Link to="/shop" className="block">Shop</Link>
+            <Link to="/about" className="block">About</Link>
+            <Link to="/blog" className="block">Blog</Link>
+            <Link to="/contact" className="block">Contact</Link>
+            <Link to="/team" className="block">Team</Link>
+            <Link to="/pages" className="block">Pages</Link>
+          </div>
+        )}
+       
         
         <div id="mobile-menu" className="hidden md:hidden bg-[#F6F6F6] mt-2 space-y-2">
           <Link to="/" className="block">Home</Link>

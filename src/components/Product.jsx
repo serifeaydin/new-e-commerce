@@ -1,27 +1,38 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faChevronRight, faEye, faStar as fasStar, faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons'; // Solid kalp
-import { faHeart as farHeart, faStar as farStar } from '@fortawesome/free-regular-svg-icons'; // Regular kalp
+import { faHeart as farHeart, faStar as farStar } from '@fortawesome/free-regular-svg-icons'; 
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addToFavorites } from '../store/actions/favoritesActions';
-import { addToCart } from '../store/actions/cartActions';
-
+import { toggleFavorite } from '../store/actions/favoritesActions'; 
+import { addToCart } from '../store/actions/cartActions'; 
 const Product = ({ product }) => {
   const dispatch = useDispatch();
 
-  // Favoriler ve sepette olma durumunu takip eden state'ler
+  
   const [isFavorited, setIsFavorited] = useState(false);
   const [isInCart, setIsInCart] = useState(false);
 
-  const handleAddToFavorites = () => {
-    dispatch(addToFavorites(product));
-    setIsFavorited(!isFavorited); // Kalbi kırmızı yapmak için durumu güncelle
+  const handleToggleFavorite = () => {
+    const favoriteProduct = { 
+      id: product.id, 
+      title: product.name, 
+      image: product.images[0].url, 
+      salePrice: product.salePrice || product.price 
+    };
+    dispatch(toggleFavorite(favoriteProduct));
+    setIsFavorited(!isFavorited);
   };
-
+  
   const handleAddToCart = () => {
-    dispatch(addToCart(product));
-    setIsInCart(true); // Sepeti kırmızı yapmak için durumu güncelle
+    const cartProduct = { 
+      id: product.id, 
+      title: product.name, 
+      image: product.images[0].url, 
+      salePrice: product.salePrice || product.price 
+    };
+    dispatch(addToCart(cartProduct));
+    setIsInCart(true);
   };
 
   return (
@@ -83,7 +94,7 @@ const Product = ({ product }) => {
               <div className='flex'>
                 <button className="bg-[#23A6F0] text-white px-6 mr-4 py-3 rounded">Select Options</button>
                 <div className="flex items-center pr-4">
-                  <button className="text-gray-500 mr-4" onClick={handleAddToFavorites}>
+                  <button className="text-gray-500 mr-4" onClick={handleToggleFavorite}>
                     <FontAwesomeIcon icon={isFavorited ? fasHeart : farHeart} style={{ color: isFavorited ? 'red' : 'gray' }} />
                   </button>
                   <button className="text-gray-500 mr-4" onClick={handleAddToCart}>
