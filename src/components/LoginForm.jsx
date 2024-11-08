@@ -18,20 +18,26 @@ const LoginForm = () => {
   const onSubmit = async (data) => {
     try {
       const result = await dispatch(loginUser(data));
+      if (result.error) {
+        toast.error(result.error.message || 'Giriş başarısız. Lütfen tekrar deneyin.');
+        return;
+      }
       const { token } = result.payload;
       
-      // If remember me is checked, save token to localStorage
+      // Eğer "Beni Hatırla" seçeneği işaretlenmişse token'ı localStorage'da sakla
       if (data.rememberMe) {
         localStorage.setItem('token', token);
       }
-
-      // Redirect to previous page or home
+  
+      // Önceki sayfaya veya ana sayfaya yönlendir
       const from = location.state?.from?.pathname || '/';
       navigate(from, { replace: true });
     } catch (error) {
-      toast.error('Invalid email or password');
+      toast.error('Giriş yaparken bir hata oluştu');
+      console.error(error);
     }
   };
+  
 
   return (
     <section>

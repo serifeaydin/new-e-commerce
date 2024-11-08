@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import {useNavigate}  from 'react-router-dom'; // Yeni
+
+
 import { removeFromCart, updateCartItemQuantity } from '../store/actions/cartActions';
 import ShopNavbar from '../components/ShopNavbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,7 +11,9 @@ import { faSquareCheck } from '@fortawesome/free-regular-svg-icons';
 
 const CartPage = () => {
   const dispatch = useDispatch();
+const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.cartItems || []);
+  const isAuthenticated = useSelector((state) => state.client.isAuthenticated); // Oturum durumunu kontrol ediyoruz
   const [selectedItems, setSelectedItems] = useState([]);
   const [totalSelectedPrice, setTotalSelectedPrice] = useState(0);
   const [shippingCost, setShippingCost] = useState(10);
@@ -38,24 +43,35 @@ const CartPage = () => {
     }
   };
 
+  const handleConfirmCart = () => {
+    if (isAuthenticated) {
+      navigate("/orderpage");
+     
+    } else {
+      navigate("/login");
+    }
+  };
+
   useEffect(() => {
     const selectedTotal = cartItems
       .filter((item) => selectedItems.includes(item.id))
       .reduce((total, item) => total + item.salePrice * item.quantity, 0);
     setTotalSelectedPrice(selectedTotal);
-  
-   
+
     if (selectedTotal > 100) {
       setShippingCost(0);
     } else {
       setShippingCost(10);
     }
-  
-    setTotalWithShipping(selectedTotal + (selectedTotal > 100 ? 0 : 10)); 
+
+    setTotalWithShipping(selectedTotal + (selectedTotal > 100 ? 0 : 10));
   }, [selectedItems, cartItems]);
 
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
-
+  useEffect(() => {
+    console.log("isAuthenticated:", isAuthenticated);
+  }, [isAuthenticated]);
+  
   return (
     <div>
       <ShopNavbar />
@@ -120,7 +136,7 @@ const CartPage = () => {
 
         {/* Sipariş Özeti */}
         <div className="w-full md:w-1/3 bg-white p-6 shadow-md rounded-lg mt-6 md:mt-0">
-          <button className="w-full bg-orange-500 text-white py-3 rounded-lg">
+          <button onClick={handleConfirmCart} className="w-full bg-orange-500 text-white py-3 rounded-lg">
             Confirm Cart
             <FontAwesomeIcon icon={faChevronRight} className='ml-4' />
           </button>
@@ -156,7 +172,7 @@ const CartPage = () => {
             />
           </div>
 
-          <button className="w-full bg-orange-500 text-white py-3 rounded-lg">
+          <button onClick={handleConfirmCart} className="w-full bg-orange-500 text-white py-3 rounded-lg">
             Confirm Cart
             <FontAwesomeIcon icon={faChevronRight} className='ml-4' />
           </button>
